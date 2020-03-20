@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>输入法切换拓展</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        input{
+            cursor:pointer;
+        }
+        #out{
+            width: 70px;
+            margin:10px auto;
+        }
+        li{
+            list-style:none;
+            font-size:12px;
+        }
+        a{
+            text-decoration:none;
+            cursor:pointer;
+            color:#00c;
+        }
+        #lan{
+            margin-top:5px;
+            border:1px solid #9a99ff;
+            display:none;
+        }
+        #lan li{
+            padding:5px;
+        }
+        #lan li:hover{
+            background-color:#d9e1f6;
+        }
+    </style>
+</head>
+<body>
+    <div id="out">
+        <input type="button" value="输入法">
+        <ul id="lan">
+            <li><a href="#">中文</a></li>
+            <li><a href="#">英文</a></li>
+            <li><a href="#">全拼</a></li>
+            <li><a href="#">半角</a></li>
+        </ul>
+    </div>
+    <script>
+        var oBtn=document.getElementsByTagName("input")[0];
+        var oLan=document.getElementById("lan");
+        var oList=oLan.getElementsByTagName("li");
+        oBtn.onclick=function(){
+            console.log(oLan.style.display);
+            oLan.style.display=oLan.style.display=="block"?"none":"block";
+        }
+        for(var i=0;i<oList.length;i++){
+            oList[i].onclick=function(){
+                var sum=this.innerText;//获取li标签中的文本内容；
+                oBtn.value=sum;
+                oLan.style.display="none";
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>倒计时</title>
+    <style>
+        body{
+            text-align:center;
+        }
+    </style>
+</head>
+<body>
+    <h2>10</h2>
+    <script>
+        var oH=document.getElementsByTagName("h2")[0];
+        var time=oH.innerHTML;
+        console.log(time);
+        var timeId=setInterval(timeDown,1000);
+        function timeDown(){
+            time=time-1;
+            oH.innerHTML=time;
+            if(time<=0){
+                clearInterval(timeId);//倒计时为0时停止计时器；
+            }
+        }
+    </script>
+</body>
+</html>

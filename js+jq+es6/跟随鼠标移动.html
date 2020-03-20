@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>跟随鼠标移动</title>
+    <style>
+        body,div,ul,li{
+            padding:0;
+            margin:0;
+        }
+        ul{
+            position:relative;
+            width: 768px;
+            height: 172px;
+            margin:10px auto;
+            list-style:none;
+        }
+        .box li{
+            width: 170px;
+            height: 170px;
+            float:left;
+            border:1px solid #ccc;
+            margin:0 10px;
+            cursor:pointer;
+        }
+        .box li.current{
+            border-color:red;
+        }
+        .box li img{
+            height: 170px;
+            width: 170px;
+            vertical-align:top;
+        }
+        #big{
+            position:absolute;
+            width: 400px;
+            height: 400px;
+            border:2px solid #ddd;
+            display:none;
+        }
+        #big div{
+            position:absolute;
+            width: 400px;
+            height: 400px;
+            top:0;
+            left:0;
+            background:#fff url(images/loading.gif) no-repeat;
+            background-position:50% 50%;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <ul>
+            <li><img src="images/shirt_1.jpg" alt=""></li>
+            <li><img src="images/shirt_2.jpg" alt=""></li>
+            <li><img src="images/shirt_3.jpg" alt=""></li>
+            <li><img src="images/shirt_4.jpg" alt=""></li>
+        </ul>
+    </div>
+    <!--//里面放一个div是为了放置图片的-->
+    <div id="big"><div></div></div>
+    <script>
+        var oDiv=document.getElementsByTagName("div")[0];
+        var oLi=oDiv.getElementsByTagName("li");
+        var oBig=document.getElementById("big");
+        var oLoding=oBig.getElementsByTagName("div")[0];
+        var oImg=null;
+        for(var i=0;i<oLi.length;i++){
+            oLi[i].index=i;
+            //鼠标进入时加载图片
+            oLi[i].onmouseover=function(){
+                //这种方法不可行，所以考虑添加一个img标签
+                // oBig.style.backgroundImags=url(images/shirt_1_big.jpg);
+                oImg=document.createElement("img");
+                var img=new Image();
+                img.src=oImg.src="images/shirt_"+(this.index+1)+"_big.jpg";
+                //添加到div中
+                oBig.appendChild(oImg);
+                //判断图片是否加载成功
+                img.complete?oLoding.style.display="none":(oImg.onload = function() {oLoding.style.display = "none";})
+                //显示oBig
+                oBig.style.display="block";
+                this.className="current";
+            }
+            //鼠标移动大图跟着移动
+            oLi[i].onmousemove=function(event){
+                var event=event||window.event;
+                //获取鼠标位置
+                var x=event.clientX;
+                var y=event.clientY;
+                //设置大图位置
+                oBig.style.left=x+10+"px";
+                oBig.style.top=y+10+"px";
+                //获取浏览器宽度,判断右侧的大图是不是超出浏览器
+                var winWidth=document.documentElement.clientWidth;
+                if(winWidth-oBig.offsetWidth-x<=10){
+                    oBig.style.left=(x-oBig.offsetWidth-10)+"px";
+                }
+            }
+            //鼠标移出
+            oLi[i].onmouseout=function(){
+                //把之前的img清理掉
+                oBig.removeChild(oImg);
+                this.className="";
+                //oBig显示为空
+                oBig.style.display="none";
+            }
+        }
+    </script>
+</body>
+</html>

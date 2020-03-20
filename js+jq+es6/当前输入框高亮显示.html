@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>当前输入框高亮显示</title>
+    <style>
+        body,p,div,h4{
+            padding:0;
+            margin:0;
+        }
+        body{
+            font:12px/1.5 Arial;
+            color:#4f4f4f;
+        }
+        .box{
+            width: 400px;
+            margin:10px auto;
+            background-color:#fef4eb;
+            border:2px solid #f60;
+            padding-bottom:10px;
+        }
+        .box h4{
+            color:#fe791e;
+            font-size:16px;
+            background-color:#ffebd7;
+            border-bottom:2px solid #f60;
+            padding:5px 10px;
+        }
+        .box p{
+            height: 31px;
+            line-height:31px;
+            margin-top:10px;
+        }
+        .box p span{
+            display:inline-block;
+            width: 90px;
+            font-size:14px;
+            text-align:right;
+            margin-right:10px;
+        }
+        input{
+            border:0;
+            outline:none;
+        }
+        .box .f-text{
+            width: 203px;
+            height: 25px;
+            border:1px solid #fed0ff;
+            border-radius:5px;
+            background-color:#fff;
+            line-height:31px;
+            padding:2px 5px;
+            font-size:12px;
+        }
+        .box .fbtn{
+            width: 104px;
+            height: 31px;
+            color:#fff;
+            background-color:#ff8800;
+            border-radius:6px;
+            font-size:16px;
+        }
+        .current{
+            width: 203px;
+            height: 25px;
+            border:1px solid #ff0000;
+            border-radius:5px;
+            background-color:orange;
+            line-height:31px;
+            padding:2px 5px;
+            font-size:12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h4>用户登录</h4>
+        <p><span>用户名:</span><input type="text" class="f-text"></p>
+        <p><span>密码:</span><input type="password" class="f-text"></p>
+        <p><span></span><input type="button" value="登 录" class="fbtn"></p>
+    </div>
+    <script>
+        var oInp=document.getElementsByTagName("input");
+        for(var i=0;i<oInp.length;i++){
+            oInp[i].onfocus=function(){
+                this.className="current";
+            }
+            //失去焦点之后的事项
+            oInp[i].onblur=function(){
+                this.className="f-text";
+            }
+        }
+    </script>
+</body>
+</html>

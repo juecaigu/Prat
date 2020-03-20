@@ -1,0 +1,48 @@
+body,h1,p,div,input,span{
+    margin:0;
+    padding:0;
+}
+body{
+    font:14px/1.5 Arial;
+}
+.header{
+    width:100px;
+    margin:20px auto 0;
+    text-align:center;
+}
+.header #newgame {
+    outline:none;
+    border:none;
+    padding:15px 20px;
+    margin:10px 0;
+    border-radius:10px;
+    background-color:#9f8b77;
+    color:#fff;
+}
+.header .score{
+    font-weight:700;
+}
+.container {
+    box-sizing:border-box;
+    width:500px;
+    height:500px;
+    padding:20px;
+    margin:10px auto;
+    background-color: #bbada0;
+    border-radius:10px;
+    position:relative;
+}
+.container .grid-cell{
+    width:100px;
+    height:100px;
+    border-radius:10px;
+    background-color: #ccc0b3;
+    position:absolute;
+}
+.container .number-cell{
+    position:absolute;
+    line-height: 100px;
+    text-align:center;
+    font-size:60px;
+    font-weight:700;
+}

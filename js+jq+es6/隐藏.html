@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>单击按钮显示/隐藏</title>
+    <style>
+        body,h2,ul,li{
+            margin:0;
+            padding:0;
+        }
+        body{
+            font:12px/1.5 Tahoma;
+        }
+        #out{
+            width: 200px;
+            border:1px solid #aaa;
+            margin:10px auto;
+        }
+        ul{
+            list-style:none;
+        }
+        #out h2{
+            color:#57646E;
+            cursor:pointer;
+            font-size:14px;
+            font-weight:400;
+            padding-left:10px;
+            height:30px;
+            line-height:30px;
+            border:1px solid #fff;
+            background:#ced3d7 url(../../../原视频/images/ico.gif) 180px 12px no-repeat;
+        }
+        #out h2.open{
+            background-image-position:180px -12px;
+        }
+        #out li{
+            height:25px;
+            line-height:25px;
+            vertical-align:top;
+        }
+        #out li a{
+            display:block;
+            text-decoration:none;
+            color:#6b7980;
+            background:#e9edf2;
+            padding:0 10px;
+        }
+        #out li a:hover{
+            background-color:#fff;
+            text-decoration:underline;
+        }
+    </style>
+</head>
+<body>
+    <div id="out">
+        <h2>播放列表</h2>
+        <ul id="songList">
+            <li><a href="#">玩家之徒--蔡依林</a></li>
+            <li><a href="#">猜不透--叮当</a></li>
+            <li><a href="#">自导自演--周杰伦</a></li>
+            <li><a href="#">红豆--王菲</a></li>
+            <li><a href="#">画--邓紫棋</a></li>
+        </ul>
+    </div>
+    <script>
+        var oNav=document.getElementById("out").getElementsByTagName("h2")[0];
+        var oLis=document.getElementById("songList");
+        oNav.onclick=function(){
+            oLis.style.display=oLis.style.display=="none"?"block":"none";//注意这里要加引号
+            oNav.className=oNav.className=="open"?"":"open";
+        }
+    </script>
+</body>
+</html>

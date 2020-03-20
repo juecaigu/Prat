@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>函数接受参数</title>
+    <style>
+        body{
+            font:12px/1.5 Tahoma;
+            text-align:center;/*水平居中*/
+        }
+        p,body{
+            margin:0;
+            padding:0;
+        }
+        p{
+            margin:15px;
+        }
+        input{
+            padding:3px;
+            border:1px solid #ccc;
+        }
+        button{
+            cursor:pointer;
+        }
+    </style>
+</head>
+<body>
+    <p><input type="text" value="第一个"></p>
+    <p><input type="text" value="第二个"></p>
+    <p><button>记录</button></p>
+    <script>
+        var oBtn=document.getElementsByTagName("button")[0];
+        var oTex=document.getElementsByTagName("input");
+        function addName(first,second){
+            var a=first.value;
+            var b=second.value;
+            console.log(a+b);
+        }
+        oBtn.onclick=function(){
+            addName(oTex[0],oTex[1]);
+        }
+    </script>
+</body>
+</html>

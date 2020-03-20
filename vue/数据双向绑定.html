@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id = "app">
+        <!-- count 和 value 值是同步的 -->
+        {{ count }}
+        <my-count :value="count" @input="handle"></my-count>
+        <!-- :value + @input 可以写成 v-model -->
+        <!-- ：value.sync  =  :value + @update:value 的简写，然后$emit里面要写(update:value方法) -->
+    </div>
+    <script>
+        //实现value值加加的效果，但是count一直不变
+        // Vue.component("myCount",{
+        //     props:["value"],
+            
+        //     mounted(){
+        //         setInterval(()=>{
+        //             this.value ++;
+        //         },1000)
+        //     },
+        //     template:`<div>{{ value }}</div>`,
+        // })
+        // const vm = new Vue({
+        //     el:"#app",
+        //     data:{
+        //         count:100,
+        //     }
+        // })
+
+
+        //利用$emit方法实现组件之间的数据通信
+        Vue.component("myCount",{
+            props:["value"],
+            mounted(){
+                setInterval(()=>{
+                    let value = this.value + 1;
+                    //把value返回给监听器
+                    this.$emit("input",value)
+                },1000)
+            },
+            template:`<div>{{ value }}</div>`,
+        })
+        const vm = new Vue({
+            el:"#app",
+            data:{
+                count:100,
+            },
+            methods:{
+                handle(val){
+                    this.count = val; 
+                }
+            }
+        })
+    </script>
+</body>
+</html>

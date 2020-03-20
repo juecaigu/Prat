@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        ul{
+            list-style:none;
+        }
+        ul,li,div{
+            padding:0;
+            margin:0;
+        }
+        .box .img li img{
+            width: 400px;
+            height: 250px;
+        }
+        .box{
+            width: 400px;
+            height: 250px;
+            margin:100px auto;
+            overflow:hidden;
+            padding:10px 20px 10px 0;
+            border:1px solid #ccc;
+            position:relative;
+        }
+        .box .img li{
+            float:left;
+            font-size:0;
+            margin-left:10px;
+        }
+        .box .img{
+            width: 2500px;
+            position:absolute;
+        }
+        .icon{
+            position:absolute;
+            left:50%;
+            bottom:25px;
+            font-size:0;
+            margin-left:-48px;
+        }
+        .icon span{
+            display:inline-block;
+            width: 10px;
+            height: 10px;
+            background-color:#fff;
+            opacity:0.8;
+            border-radius:50%;
+            margin-left:8px;
+        }
+        span.current{
+            background-color:#f50;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <ul class=img>
+            <li><img src="images/1.jpg" alt=""></li>
+            <li><img src="images/2.jpg" alt=""></li>
+            <li><img src="images/3.jpg" alt=""></li>
+            <li><img src="images/4.jpg" alt=""></li>
+            <li><img src="images/5.jpg" alt=""></li>
+            <li><img src="images/1.jpg" alt=""></li>
+        </ul>
+        <div class="icon">
+            <span class="current"></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+    <script>
+        var oul = document.getElementsByClassName("img")[0];
+        var oSpn = document.getElementsByTagName("span");
+        var tar = 0;
+        //封装一个动画函数,传入一个元素和一个目标位置；
+        function animate(elem,target,step){
+            clearInterval(timeId)
+            var current = elem.offsetLeft;
+            var step = target > current ? step : -step;
+            var timeId = setInterval(function(){
+                current += step;
+                elem.style.left = current + "px";
+                if(Math.abs(target - current) < Math.abs(step)){
+                    clearInterval(timeId);
+                    elem.style.left = target + "px";
+                }
+            },20)
+        }
+        var tar = 0;
+        var key = 0;
+        function show(){
+            if(oul.offsetLeft <= -2050){
+                oul.style.left = 0 + "px";
+                tar = 0;
+            }
+            tar -= 410
+            for(var i = 0; i<oSpn.length;i++){
+                oSpn[i].className = "";
+            }
+            console.log(tar);
+            //让span的索引与对应的图片对应上
+            key = key >= 4 ? 0 : key + 1;
+            oSpn[key].className ="current";
+            animate(oul,tar,10);
+        }
+        setInterval(show,2000)
+        
+    </script>
+</body>
+</html>

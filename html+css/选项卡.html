@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            padding:0;
+            margin:0;
+        }
+        ul{
+            list-style:none;
+        }
+        a{
+            text-decoration:none;
+            font-size:12px;
+            color:#333;
+        }
+        .wrapper{
+            width: 400px;
+            margin:20px auto;
+        }
+        .wrapper .nav{
+            overflow:hidden;
+            width: 400px;
+            height: 30px;
+        }
+        .wrapper .nav li{
+            float:left;
+            width: 98px;
+            text-align:center;
+            border:1px solid #ccc;
+            border-right:0;
+            height:28px;
+            line-height:28px;
+        }
+        .wrapper .nav li:nth-of-type(4){
+            border-right:1px solid #ccc;
+        }
+        .wrapper .nav li:hover{
+            background-color: rgba(255,100,0,0.5);
+        }
+        .wrapper .contain{
+            width:395px;
+            height: 100px;
+            border:1px solid #fcc;
+            border-top-color:transparent;
+            position:relative;
+        }
+        .wrapper .contain li{
+            position:absolute;
+            left:0;
+            top:0;
+        }
+        .wrapper .contain li:not(:target){
+            display:none;
+        }
+    </style>
+</head>
+<body>
+    <div class = "wrapper">
+        <ul class = "nav">
+            <li><a href = "#first">第一页</a></li>
+            <li><a href = "#sec">第二页</a></li>
+            <li><a href = "#thr">第三页</a></li>
+            <li><a href = "#four">第四页</a></li>
+        </ul>
+        <ul class = "contain">
+            <li id = "first">1</li>
+            <li id = "sec">2</li>
+            <li id = "thr">3</li>
+            <li id = "four">4</li>
+        </ul>
+    </div>
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>模拟select控件</title>
+    <style>
+        body,ul,li,div{
+            padding:0;
+            margin:0;
+        }
+        body{
+            background-color:#23384e;
+            font:12px/1.5 \5fae\8f6f\96c5\9ed1;
+        }
+        .box,.box .nav,.box .contant,.box .select,.box a,.box a:hover{
+            background:url(images/search.jpg) no-repeat;
+        }
+        .box{
+            width: 350px;
+            height:34px;
+            margin:10px auto;
+            position:relative;
+        }
+        .box .nav{
+            position:absolute;
+            width:350px;
+            height:34px;
+            background-position:right 0;
+        }
+        .box .contant{
+            position:absolute;
+            left:40px;
+            width: 290px;
+            height: 34px;
+            background-position:0 -34px;
+            background-repeat:repeat-x;
+        }
+        .box .select{
+            float:left;
+            width: 190px;
+            height: 22px;
+            color:#fff;
+            letter-spacing:2px;
+            line-height:22px;
+            background-position:0 -68px;
+            margin-top:4px;
+            cursor:pointer;
+            padding:0 2px 0 10px;
+        }
+        .box a{
+            float:left;
+            text-decoration:none;
+            width: 80px;
+            height: 24px;
+            color:#333;
+            line-height:22px;
+            text-align:center;
+            margin:4px 0 0 6px;
+            background-position:0 -90px;
+        }
+        .box a:hover{
+            background-position:-80px -90px;
+            color:#f00;
+        }
+        .box .list{
+            list-style:none;
+            position:absolute;
+            top:26px;
+            left:40px;
+            border:1px solid #fff;
+            background-color:#2b2b2b;
+            width: 198px;
+            display:none;
+        }
+        .box .list li{
+            height: 25px;
+            line-height:24px;
+            margin-bottom:-1px;
+            color:#fff;
+            border-bottom:1px dotted #fff;
+            padding-left:10px;
+            cursor:pointer;
+        }
+        .box .list li:hover{
+            background-color:#8b8b8b;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="nav">
+            <div class="contant">
+                <span class="select">请选择游戏名称</span>
+                <a href="javaScript:;">搜 索</a>
+            </div>
+        </div>
+        <ul class="list">
+            <li>地下城与勇士</li>
+            <li>魔兽世界</li>
+            <li>魔兽世界（国服）</li>
+            <li>热血江湖</li>
+            <li>英雄联盟</li>
+            <li>绝地求生</li>
+            <li>仙剑奇侠传</li>
+        </ul>
+    </div>
+    <script>
+        var oSpn=document.getElementsByTagName("span")[0];
+        var oUl=document.getElementsByTagName("ul")[0];
+        var oLi=oUl.getElementsByTagName("li");
+        oSpn.onclick=function(event){
+            oUl.style.display=oUl.style.display=="block"?"none":"block";
+            //阻止事件冒泡
+            (event || window.event).cancelBubble = true;
+        }
+        for(var i=0;i<oLi.length;i++){
+            oLi[i].onclick=function(){
+                oSpn.innerHTML=this.innerHTML;
+                // oUl.style.display="none";
+            }
+        }
+        //点击页面上所有的内容都会让oUl隐藏
+        document.onclick=function(){
+            oUl.style.display="none";
+        }
+    </script>
+</body>
+</html>

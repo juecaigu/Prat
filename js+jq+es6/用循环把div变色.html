@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>循环使div变色</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        body{
+            text-align:center;
+        }
+        #out{
+            width: 480px;
+            height: 100px;
+            margin:10px auto;
+            /*background-color:pink;*/
+        }
+        #out div{
+            width:100px;
+            height: 100px;
+            margin:10px 30px;
+            background-color:black;
+            float:left;
+        }
+    </style>
+</head>
+<body>
+    <button>变色</button>
+    <div id="out">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <script>
+        var oBtn=document.getElementsByTagName("button")[0];
+        var oDiv=document.getElementById("out").getElementsByTagName("div");
+        oBtn.onclick=function(){
+            for(var i=0;i<oDiv.length;i++){
+                oDiv[i].style.backgroundColor="red";
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>秒表计时器</title>
+    <style>
+        body,div,p{
+            padding:0;
+            margin:0;
+        }
+        body{
+            color:#fff;
+            font-size:16px;
+        }
+        div{
+            background-color:#1a1a1a;
+            width: 300px;
+            margin:20px auto;
+            text-align:center;
+        }
+        input{
+            width: 30px;
+            text-align:center;
+            margin:10px;
+            padding:5px;
+        }
+        p input{
+            width: 60px;
+            cursor:pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="clock">
+        <input type="text" value="01"><span>分</span><input type="text" value="10"><span>秒</span>
+        <p><input type="button" value="开始"></p>
+    </div>
+    <script>
+        var oMint=document.getElementsByTagName("input")[0];
+        var oSend=document.getElementsByTagName("input")[1];
+        var oBtn=document.getElementsByTagName("input")[2];
+        function timeDown(ele,nameInterval){//创建一个函数用于递减
+            var time=ele.value;
+            time=time-1;
+            ele.value=time;
+            if(ele.value==0){
+                clearInterval(nameInterval);
+            };
+        };
+        var secondDwon=setInterval(function(){timeDown(oSend,secondDwon)},1000);
+        var mintunedDwon=setInterval(function(){timeDown(oMint,mintunedDwon)},1000);
+    </script>
+</body>
+</html>

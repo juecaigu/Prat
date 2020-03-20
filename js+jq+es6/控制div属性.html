@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>控制div属性</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        #box{
+            height: 100px;
+            width: 100px;
+            background-color:#000;
+            margin:10px auto;
+            display:block;
+        }
+        .out{
+            width: 500px;
+            margin:5px auto 0;
+            text-align:center;
+        }
+        input{
+            font-size:14px;
+            padding:0 5px;
+        }
+    </style>
+</head>
+<body>
+<div class="out">
+    <input type="button" value="变宽" />
+    <input type="button" value="变高" />
+    <input type="button" value="变色" />
+    <input type="button" value="隐藏" />
+    <input type="button" value="重置" />
+</div>
+<div id="box"></div>
+<script>
+    function changeStyle(elem,attr,value){
+        elem.style[attr]=value;//保留之前点击的属性
+    }
+    var oBtn=document.getElementsByTagName("input");
+    var oDiv=document.getElementById("box");
+    var oAttr=["width","height","background-color","display","display"];
+    var oVal=["200px","200px","red","none","block"];
+    for(var i=0;i<oBtn.length;i++){
+        oBtn[i].index=i;//添加index属性用来存储索引
+        oBtn[i].onclick=function(){
+            //this.index == oBtn.length-1 && (oDiv.style="");
+            // 相当于：
+            if(this.index==oBtn.length-1){
+              oDiv.style="";
+            };
+            changeStyle(oDiv,oAttr[this.index],oVal[this.index]);
+        }
+    }
+</script>
+</body>
+</html>

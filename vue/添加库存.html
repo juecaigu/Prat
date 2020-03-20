@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        input{
+            width:50px;
+        }
+    </style>
+</head>
+<body>
+    <div id = "app">
+        
+    </div>
+    <script>
+        const config = {
+            el:"#app",
+            data:{
+                title:"添加商品和库存",
+                shopList:[
+                    {name:"小米手机",stock:"10"},
+                    {name:"华为手机",stock:"20"}
+                ],
+                newShop:{
+                    name:"",
+                    stock:null
+                }
+
+            },
+            methods:{
+                add(){
+                    if(this.newShop.name){
+                        this.shopList.push(this.newShop);
+                        this.newShop = {
+                            name:"",
+                            stock:null
+                        }
+                    }
+                },
+                reduceStock(item){
+                    item.stock --;
+                    if(item.stock < 0){
+                        item.stock = 0
+                    }
+                },
+                addStock(item){
+                    item.stock ++;
+                    if(item.stock < 0){
+                        item.stock = 0
+                    } 
+                },
+                removeList(index){
+                    this.shopList.splice(index,1)
+                }
+            },
+            template:`
+            <div class = "wrapper">
+            <h3>{{ title }}</h3>
+            名称：<input type="text" v-model="newShop.name">
+            库存：<input type="number" min="0" v-model="newShop.stock">
+            <button @click="add">添加</button>
+            <ul>
+                <li v-for="(item,index) in shopList">
+                    {{ item.name }}
+                    <button @click="reduceStock(item)">-</button>
+                    <span v-if="item.stock > 0">{{ item.stock }}</span>
+                    <i v-else="item.stock === 0">售罄</i>
+                    <button @click="addStock(item)">+</button>
+                    <input type="number" min="0" v-model="item.stock">
+                    <button @click="removeList(index)">删除</button>
+                </li>
+            </ul>
+            </div>
+            `
+        }
+        const vm = new Vue(config)
+    </script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>设置和读取对象的属性</title>
+    <style>
+        #box{
+            width: 400px;
+            height: 200px;
+            margin:10px auto;
+            border:1px solid #ff9900;
+            background-color:#FFCC00;
+        }
+        #box input{
+            background-color:#9a99ff;
+            color:#fff;
+            border:0;
+            margin:8px;
+            padding:3px ;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <input type="button" value="Get Style">
+        <input type="button" value="Set Style">
+        <input type="button" value="Defalut Style">
+    </div>
+    <script>
+        var oDiv=document.getElementById("box");
+        var oInp=document.getElementsByTagName("input");
+        //alert(oDiv.style.backgroundColor) 注意这里的style只能获取在html中写了style=“”的属性
+        //不能获取在css中定义的属性，要获取的话可以用如下代码
+        function getCss(ele,attr,value){
+            //判断传入的参数个数
+            switch(arguments.length){
+                case 2:
+                    //typeof 操作符返回字符串类型,判断第二个参数是不是对象
+                    if(typeof arguments[1] == "object"){
+                        for(var i in attr){
+                            //注意这里的[attr]和[i]是属性
+                            ele.style[i]=attr[i];
+                        }
+                    }else{
+                        //currentStyle 是IE当中的属性 getComputedStyle是chrome中的方法（元素，伪元素字符串或者是null）
+                        return ele.currentStyle?ele.currentStyle[attr]:getComputedStyle(ele,null)[attr]
+                    }
+                    break;
+                case 3:
+                    //传入了三个值
+                    ele.style[attr]=value;
+                    break;
+                //当case中都不匹配的时候执行default
+                default:
+                    alert("参数错误！");
+                    break;
+            }
+        }
+        //第一个按钮的事件
+        oInp[0].onclick=function(){
+            alert("width:"+getCss(oDiv,"width")+"\nheight:"+getCss(oDiv,"height")+"\nbackground:"+getCss(oDiv,"backgroundColor"));
+        }
+        //第二个按钮的事件
+        oInp[1].onclick=function(){
+            getCss(oDiv,{width:"330px",height:"150px",borderColor:"#0084ff",backgroundColor:"#eff8ff"});
+            for(var i=0;i<oInp.length;i++){
+                getCss(oInp[i],"backgroundColor","#FFCC00")
+            }
+        }
+        //第三个按钮的事件
+        oInp[2].onclick=function(){
+            getCss(oDiv,{width:"400px",height:"200px",borderColor:"#ff9900",backgroundColor:"#FFCC00"})
+            for(var i=0;i<oInp.length;i++){
+                getCss(oInp[i],"backgroundColor","#9a99ff")
+            }
+        }
+    </script>
+</body>
+</html>

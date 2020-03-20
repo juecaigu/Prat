@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <!-- <div id = "app">
+        <div v-for="(item,index) in arr">{{ item }}</div>
+        <template v-for = "(arr,ind) in arr1">
+            <div>{{ arr }}</div>
+            <span>{{ ind }}</span>
+        </template> -->
+        <!-- 过滤 -->
+        <!-- {{ money | toMoney(2) }}
+    </div> -->
+    <!-- <script>    
+        //过滤器--全局注册
+        Vue.filter("toMoney",(value,item)=>{
+            return value * item
+        })
+        //v-for的使用
+        const vm = new Vue({
+            el:"#app",
+            data:{
+                arr:[1,2,3],
+                arr1:["a","b","c"],
+                money:10000
+            },
+            methods:{
+
+            }
+        })
+
+
+    </script> -->
+
+    <!--组件-->
+    <div id ="app">
+        <hello-world></hello-world>
+    </div>
+    <script>
+        //全局上的组件----和局部组件的区别就是，局部组件是写在组件里面的
+        Vue.component('hello-world',{
+            data(){
+                return{
+                    msg:"hello world!!!"
+                }
+            },
+            template:"<div>{{ msg }}</div>",
+        })
+        const vm = new Vue({
+            el:"#app",
+            data:{
+                name:"aaa"
+            }
+        })
+    </script>
+</body>
+</html>

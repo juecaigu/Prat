@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id = "app"></div>
+    <script>
+        //有8个阶段
+        const vm = new Vue({
+                el:"#app",
+                data:{
+                    name:"aaa",
+                    age:12,
+                },
+                //创建前函数
+                beforeCreat(){
+                    console.log("beforeCreat")
+                },
+                //创建完成之后(可以获取数据)
+                created(){
+                    console.log("created");
+                },
+                //挂载之前
+                beforeMount(){
+                    console.log("beforeMount");
+                },
+                //挂载之后
+                mounted(){
+                    //一般这边会请求ajax  因为这里已经能够获取元素了
+                    console.log("mouted")
+                },
+                beforeUpdated(){
+                    //挂载完成之后，改变数据的值  之前  页面还没有重新渲染
+                    this.age = 16;
+                    console.log("beforeUpdated")
+                },
+                updated(){
+                    //修改完成之后------一般数据的改变不在这边赋值因为可能造成无限循环
+                    console.log("updated")
+                },
+                beforeDestory(){
+                    //销毁之前
+                    console.log("beforeDestory")
+                },
+                destory(){
+                    //销毁之后
+                    console.log("destory")
+                }
+            })
+    </script>
+</body>
+</html>

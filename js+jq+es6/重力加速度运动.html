@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            position:absolute;
+            left:0;
+            top:0;
+            background-color:orange;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <script>
+        var oDiv = document.getElementsByTagName("div")[0];
+        //先绑定鼠标移动和单击事件；
+        var eleL = 0;
+        var eleT = 0;
+        var lastX = 0;
+        var lastY = 0;
+        var stepX = 0;
+        var stepY = 0;
+        oDiv.addEventListener("mousedown",function(e){
+            //先清理一次定时器，以便于在运动的时候也能够抓取
+            clearInterval(this.timer)
+            var event = e || window.event;
+            //window属性是把eleL的值返回到全局，然后可以被move函数里面调用
+            window.eleL = event.clientX - this.offsetLeft;
+            window.eleT = event.clientY - this.offsetTop;
+            document.addEventListener("mousemove",move,false)
+        },false)
+        //鼠标抬起的时候能解绑移动事件
+        oDiv.addEventListener("mouseup",function(){
+            document.removeEventListener("mousemove",move,false)
+            startMove(oDiv,stepX,stepY)
+            },false)
+            //先定义一个函数之后用来解绑事件的
+            var move = function(e){
+                var event = e || window.event;
+                oDiv.style.left = event.clientX - eleL + "px";
+                oDiv.style.top = event.clientY - eleT + "px";
+                stepX = event.clientX - eleL - lastX;
+                stepY = event.clientY - eleT - lastY;
+                lastX = event.clientX - eleL;
+                lastY = event.clientY - eleT;
+            }
+        // 当然解绑事件是可以用 onmouseup = function（）{
+        //     this.onmove = null; 
+        // }
+        //设置运动事件
+        function startMove(elem,stepX,stepY){
+            var currentX = 0;
+            var currentY = 0;
+            elem.timer = setInterval(function(){
+                currentX = elem.offsetLeft;
+                currentY = elem.offsetTop;
+                stepY += 2;
+                //判断是否到达边界
+                if (currentX + elem.offsetWidth >= document.documentElement.clientWidth - stepX){
+                    currentX = document.documentElement.clientWidth - elem.offsetWidth;
+                    stepX *= -1;
+                    stepX = stepX * 0.6;
+                    stepY = stepY * 0.6;
+                }
+                if (currentY + elem.offsetHeight >= document.documentElement.clientHeight - stepY){
+                    currentY = document.documentElement.clientHeight - elem.offsetHeight;
+                    stepY *= -1;
+                    stepX = stepX * 0.6;
+                    stepY = stepY * 0.6;
+                }
+                if (currentX < 0){
+                    currentX = 0;
+                    stepX *= -1;
+                    stepX = stepX * 0.6;
+                    stepY = stepY * 0.6;
+                }
+                if (currentY < 0){
+                    currentY = 0;
+                    stepY *= -1;
+                    stepX = stepX * 0.6;
+                    stepY = stepY * 0.6;
+                }
+                if ( Math.abs(stepX) < 0.5 ){
+                    stepX = 0;
+                }
+                if ( Math.abs(stepY) < 2 ){
+                    stepY = 0;
+                }
+                if( stepX == 0 & stepY ==0 & currentY == document.documentElement.clientHeight - elem.offsetHeight){
+                    clearInterval(elem.timer)
+                }
+                elem.style.left = currentX + stepX + "px";
+                elem.style.top = currentY + stepY + "px";
+                console.log(stepX+"===="+stepY)
+            },30) 
+        }
+    </script>
+</body>
+</html>

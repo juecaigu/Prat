@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>setTime应用</title>
+    <style>
+        body, div, ul, li, p {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            font: 12px/1.5 Arial; /* style weight size family 后两者是必须的*/
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .nav, .nav ul, .nav ul li, .nav ul li a:hover,.nav .subnav,.nav .subnav p,.nav .subnav p span,.nav .subnav .arrow{
+            background: url(images/nav_bg.png) no-repeat;
+        }
+
+        .nav {
+            position: relative;
+            width: 900px;
+            margin: 10px auto;
+            background-position: 0 -36px;
+        }
+
+        .nav ul {
+            height: 36px;
+            line-height: 36px;
+            margin-left: 20px;
+            padding-right: 10px;
+            overflow: hidden;
+            background-position: right -72px;
+        }
+
+        .nav ul li {
+            float: left;
+            width: 110px;
+            background-position: 0 -108px;
+            margin-left: -2px;
+        }
+
+        .nav ul li a {
+            text-decoration: none;
+            font-size: 14px;
+            color: #fff;
+            text-align: center;
+            display: block;
+            width: 102px;
+        }
+
+        .nav ul li a:hover {
+            background-position: -2px -144px;
+        }
+
+        .nav .subnav {
+            position: absolute;
+            top: 41px;
+            width: auto !important;
+            min-width: 110px;
+            height: 27px;
+            line-height: 27px;
+            white-space: nowrap;/*如何处理空白文本,nowrap表示不允许换行 直到遇到换行标签*/
+            background-position: 0 -180px;
+            display:none;
+        }
+        .nav .subnav p{
+            background-position:right -234px;
+            padding:0 10px;
+        }
+        .nav .subnav p span{
+            display:block;
+            color:#235e99;
+            background-position:0 -207px;
+            background-repeat:repeat-x;
+        }
+        .nav .subnav p a{
+            color:#235e99;
+            display:inline;
+            font-size:12px;
+            margin:0 8px;
+        }
+        .nav .subnav p a:hover{
+            background-image:none;
+            color:#ccc;
+            border-bottom:2px solid;
+        }
+        .nav .subnav .arrow{
+            position:absolute;
+            width: 11px;
+            height: 5px;
+            left:55px;
+            top:-4px;
+            display:block;
+            background-position:0 -261px;
+        }
+    </style>
+</head>
+<body>
+<div class="nav">
+    <ul>
+        <li><a href="#">站长之家</a></li>
+        <li>
+            <a href="#">行业资讯</a>
+            <div class="subnav">
+                <em class="arrow"></em>
+                <p>
+                    <span>
+                        <a href="#">业界动态</a>|
+                        <a href="#">企业融资</a>|
+                        <a href="#">门户动态</a>|
+                        <a href="#">搜索引擎</a>|
+                        <a href="#">网络游戏</a>|
+                        <a href="#">电子商务</a>|
+                        <a href="#">广告传媒</a>|
+                        <a href="#">厂商开发</a>
+                    </span>
+                </p><!--这边放一个p标签是为了能够在移动图片的时候右半边能够显示-->
+            </div>
+        </li>
+        <li>
+            <a href="#">站长在线</a>
+            <div class="subnav">
+                <em class="arrow"></em>
+                <p>
+                    <span>
+                        <a href="#">站长报道</a>|
+                        <a href="#">好站推荐</a>|
+                        <a href="#">站长聚会</a>|
+                        <a href="#">站长访谈</a>|
+                        <a href="#">站长茶馆</a>|
+                        <a href="#">网站排行</a>
+                    </span>
+                </p>
+            </div>
+        </li>
+        <li>
+            <a href="#">网店运营</a>
+            <div class="subnav">
+                <em class="arrow"></em>
+                <p>
+                    <span>
+                        <a href="#">建站经验</a>|
+                        <a href="#">策划盈利</a>|
+                        <a href="#">搜索优化</a>|
+                        <a href="#">网站推广</a>|
+                        <a href="#">免费资源</a>
+                    </span>
+                </p>
+            </div>
+        </li>
+        <li>
+            <a href="#">设计在线</a>
+            <div class="subnav">
+                <em class="arrow"></em>
+                <p>
+                    <span>
+                        <a href="#">酷站推荐</a>|
+                        <a href="#">网页设计</a>|
+                        <a href="#">WEB标准</a>|
+                        <a href="#">视频活动</a>|
+                        <a href="#">设计处理</a>
+                    </span>
+                </p>
+            </div>
+        </li>
+        <li>
+            <a href="#">网络编程</a>
+            <div class="subnav">
+                <em class="arrow"></em>
+                <p>
+                    <span>
+                        <a href="#">JavaScript</a>|
+                        <a href="#">Java</a>|
+                        <a href="#">C++</a>|
+                        <a href="#">C#</a>|
+                        <a href="#">Python</a>
+                    </span>
+                </p>
+            </div>
+        </li>
+        <li>
+            <a href="#">联盟资讯</a>
+            <div class="subnav">
+                <em class="arrow"></em>
+                <p>
+                    <span>
+                        <a href="#">联盟动态</a>|
+                        <a href="#">联盟介绍</a>|
+                        <a href="#">联盟点评</a>|
+                        <a href="#">网赚技巧</a>
+                    </span>
+                </p>
+            </div>
+        </li>
+        <li>
+            <a href="#">服务器</a>
+            <div class="subnav">
+                <em class="arrow"></em>
+               <p>
+                    <span>
+                        <a href="#">安全防护</a>|
+                        <a href="#">虚拟主机</a>|
+                        <a href="#">Web服务器</a>|
+                        <a href="#">Linux服务器</a>
+                    </span>
+               </p>
+            </div>
+        </li>
+    </ul>
+</div>
+<script>
+    var oNav=document.getElementsByClassName("nav")[0];
+    var oList=oNav.getElementsByTagName("li");
+    var oSubNav=document.querySelectorAll("li>.subnav");//根据选择器获取节点，获取li下的.subnav标签
+    for(var i=0;i<oList.length;i++){
+        oList[i].index=i;
+        oList[i].onmouseover=function(){//为所有的li注册鼠标进入事件；
+            for(var j=0;j<oSubNav.length;j++){
+                oSubNav[j].style.display="none";//清除所有的菜单属性
+            };
+            var oSub=this.getElementsByClassName("subnav")[0];//第一个li标签获取子元素是undefined
+            var oEm=this.getElementsByClassName("arrow")[0];
+            if(oSub!==undefined){ 
+                oSub.style.display="block";
+                oNav.offsetWidth-this.offsetLeft>oSub.offsetWidth?//判断oSub的长度是否超过了oNav
+                    oSub.style.left=this.offsetLeft+"px":
+                    oSub.style.right=0;//靠右显示
+                oEm.style.left=this.offsetLeft-oSub.offsetLeft+50+"px";//计算箭头的位置
+            };
+        };
+        oList[i].onmouseout=function(){
+            a=this.index>0?this.index:1;
+            timer=setTimeout(function(){
+                oSubNav[a-1].style.display="none";
+            },500);
+        };
+    }
+</script>
+</body>
+</html>

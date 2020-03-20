@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id = "app">
+
+    </div>
+    <script>
+        const vm = new Vue({
+            el:"#app",
+            data:{},
+            components:{
+                parent:{
+                    data(){
+                        return {
+                            a:"aaa"
+                        }
+                    },
+                    //可以通过$children 访问子组件的数据,就不需要注册了
+                    template:`<div :chil = "this.$children"></div>`
+                },
+                components:{
+                    children:{
+                        //通过$parent 可以访问父组件的数据，不需要注册了
+                        template:`<div :par = "this.$parent"></div>`
+                    }
+                }
+            }
+        })
+        
+        //第一种方法：
+        //用$parent和$children 方法
+        
+        //第二种方法：
+
+        //在根标签定义
+        // provide：{
+        //     content："asdgas",
+        //     title:"aaa"
+        // }
+        // //在任意子组件中可以注册provide中提供的内容
+        // inject：[content] 
+
+        //第三种：
+        //用ref传值
+        //<div ref = "dom"> </div>   ref设置引用
+        const vm = new Vue({
+            el:"#app",
+            data:{},
+            created(){
+                console.log(this.$refs.dom)//这样就引用了之前设置好的
+            }
+        })
+        //注意点，如果设置的引用名都一样的话会覆盖，但是如果是在for循环里面的话会产生对应的数组
+
+
+        //$listeners用来监听 v-on 指令创建的方法(相当于一个存放的容器)
+        //$emit()   用来触发某个事件
+    </script>
+        
+</body>
+</html>

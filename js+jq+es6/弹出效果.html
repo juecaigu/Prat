@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>弹出效果</title>
+    <style>
+        body{
+            height:100%;
+            overflow:hidden;
+            font:12px/1.5 Tahoma;
+            text-align:center;
+        }
+        body,p,h5{
+            margin:0;
+            padding:0;
+        }
+        #cover{
+            position:absolute;/*这里用relative不行*/
+            top:0;
+            left:0;
+            width:100%;
+            height:100%;
+            background-color:#000;
+            opacity:0.5;
+            filter:alpha(opacity=50);/*ie兼容代码*/
+            display:none;
+        }
+        #box{
+            position:absolute;
+            width: 400px;
+            height: 200px;
+            border:4px solid #ff9900;
+            left:50%;
+            top:50%;
+            margin:-104px 0 0 -204px;
+            background-color:#ffffff;
+            display:none;
+        }
+        h5{
+            text-align:right;
+            background-color:#FC0;
+            font-size:12px;
+            border-bottom:3px solid #f90;
+            padding:5px;
+        }
+        h5 span{
+            display:inline-block;
+            color:#f90;
+            cursor:pointer;
+            background-color: #fff;
+            border:1px solid #f90;
+            padding:0 3px;
+            height: 14px;
+            line-height:12px;
+        }
+        button{
+            cursor:pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="cover"></div>
+    <div id="box">
+        <h5>
+            <span id="close">x</span>
+        </h5>
+    </div>
+    <p><button>弹窗</button></p>
+    <script>
+        var oBtn=document.getElementsByTagName("button")[0];
+        var oCover=document.getElementById("cover");
+        var oBox=document.getElementById("box");
+        var oClose=document.getElementById("close");
+        oBtn.onclick=function(){
+            oCover.style.display="block";
+            oBox.style.display="block";
+        }
+        oClose.onclick=function(){
+            oCover.style.display="none";
+            oBox.style.display="none";
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>简易的时间</title>
+    <style>
+        body{color:#fff;
+            font:16px/1.5 \5fae\8f6f\96c5\9ed1;
+            padding:0;
+            margin:0;
+        }
+        div{
+            background-color:#000;
+            width:300px;
+            text-align:center;
+            margin:10px auto;
+            padding:20px 0;
+        }
+        span{
+            color:#1a1a1a;
+            width: 80px;
+            border:2px solid #b4b4b4;
+            background-color: #fff;
+            padding:0 10px;
+            margin:0 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="clock">
+        <span></span>点<span></span>分<span></span>秒
+    </div>
+    <script>
+        var oDiv=document.getElementById("clock");
+        var oSpan=oDiv.getElementsByTagName("span");
+        getTime();
+        setInterval(getTime,1000);
+        function getTime(){
+            var oDate=new Date();//Date 跟Math不一样，需要先创建
+            var spanDate=[oDate.getHours(),oDate.getMinutes(),oDate.getSeconds()];
+            for(var i=0;i<oSpan.length;i++) {
+                oSpan[i].innerHTML = format(spanDate[i]);
+            };
+        };
+        function format(a)//为了当0-9的时候在前面显示0；
+        {
+            return a.toString().replace(/^(\d)$/, "0$1")
+        }
+
+    </script>
+</body>
+</html>

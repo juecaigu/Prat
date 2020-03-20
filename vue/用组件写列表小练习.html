@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        .news{
+            list-style:none;
+            width: 300px;
+            border:1px solid #ccc;
+            padding:10px 20px 20px;
+            margin:50px 50px;
+        }
+        .list{
+            display:flex;
+            justify-content:space-between;
+            margin-top:10px;
+        }
+        .num{
+            display:inline-block;
+            height:16px;
+            width: 16px;
+            font-size:12px;
+            line-height:16px;
+            text-align:center;
+            background-color: #8eb9f5;
+            color:#fff;
+        }
+        .num.hot1{
+            background-color:#f54545;
+        }
+        .num.hot2{
+            background-color:#ff8547;
+        }
+        .num.hot3{
+            background-color:#ffac38;
+        }
+    </style>
+</head>
+<body>
+    <div id = "app">
+        <news :news-list = "newsList"></news>
+    </div>
+    <script>
+        const vm = new Vue({
+            el:"#app",
+            data:{
+                newsList: [
+          {
+            title: '周冬雨被爆恋情',
+            index: '1235万',
+            id: 0
+          },
+          {
+            title: '赵立新注销微博',
+            index: '1140万',
+            id: 1
+          },
+          {
+            title: '凉山冕宁发生火灾',
+            index: '1053万',
+            id: 2
+          },
+          {
+            title: '字母哥帽恩比德',
+            index: '996万',
+            id: 3
+          },
+          {
+            title: '曝紫辉创投CEO骗婚',
+            index: '987万',
+            id: 4
+          },
+          {
+            title: '南京2.8级地震',
+            index: '789万',
+            id: 5
+          },
+          {
+            title: '韩国发生森林大火',
+            index: '759万',
+            id: 6
+          },
+          {
+            title: '消防收神秘礼物',
+            index: '711万',
+            id: 7
+          }
+        ]
+            },
+            components:{
+                news:{
+                    props:["newsList"],
+                    template:`<ul class = "news">
+                                <h3 class = "title">热搜排行</h3>
+                                <news-l v-for="(item,index) in newsList" 
+                                :key="item.id"
+                                :num="index + 1"
+                                :title="item.title"
+                                :index="item.index"
+                                >    
+                                </news-l>   
+                                </ul>`,
+                    //这个组件是放在外面的组件里面的
+                    components:{
+                        newsL:{
+                    props:["num","title","index"],
+                    data(){
+                        return {
+                            classCont:""
+                        }
+                    },
+                    //生命周期函数里面的，已经创建好组件，这样就可以调用里面的数据
+                    created(){
+                       //动态地添加class名
+                        switch(this.num){
+                            case 1:
+                                this.classCont = "hot1";
+                                return;
+                            case 2:
+                                this.classCont = "hot2";
+                                return;
+                            case 3:
+                                this.classCont = "hot3";
+                                return;
+                            default:
+                                return;
+                        }
+                    },
+                    template:` <li class = "list">
+                                    <div class = "content">
+                                    <span class = "num" :class="classCont">{{ num }}</span>
+                                    <span class = "title-list">{{ title }}</span>
+                               </div>
+                                <div class = "index">{{ index }}</div>
+                                </li>`
+                }
+            }
+                }
+            }
+        })
+    </script>
+</body>
+</html>

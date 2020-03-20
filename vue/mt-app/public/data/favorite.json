@@ -1,0 +1,149 @@
+{
+    "data": {
+        "favorite": [
+            {
+                "poiId": 160750349,
+                "frontImg": "http://p0.meituan.net/180.180/deal/841a5202b95ac1651dffde85914a232d78641.jpg@600w_600h_1l",
+                "title": "川溢香成都老火锅（上南路总店）",
+                "avgScore": 4.1,
+                "allCommentNum": 400,
+                "address": "浦东新区海阳路808号（飞旺家园东南门对面）",
+                "avgPrice": 84,
+                "dealList": [],
+                "hasAds": true,
+                "adsClickUrl": "https://mlog.dianping.com/api/cpv/billing?productid=74&display_id=50028&bg=0&pctr=0.06509803921568627&ad_cj=YzzfjbXHBAMVXUElO91yf2ZEfbuRhM-neCHP-Vdw-ojcRRFWqmKG3wRj7FTRQxN8BB5iZWzcCRmOaaj48SefdPYXSGAi2JZRsayXyMaMosSmDWgiKyNE932vAwoXR0RtqhQ1mOt3SxVv6tk&ad_ci=YzzfhbTXCEpdD1kxY9J2bz8ZNuHK0uC8dX-T91xr_oLcSwUA9C7WnE08sF7YRgU_UFw2NCGlAhTXZajl8znZJr5EX3Yn05ZY6aWfyMiIqcOlBWUlOmQZqj-gAAoBFhYImz5L_Jx8G0tovds5YHU&discount=1&mtlaunch_city_id=10&bu=2&category_id=110&pos=1&AdsCtrStrategy=SearchPcSearchBaseline&mtuser_id64=0&pcvr=0.0023829787234042558&mtdpid=eb2a491c56c84415b76c.1584237355.1.0.0&bottomprice=1.0&user_agent=pc&launch_city_id=1&mtcategory_ids=17&sver=2&AdExpPath=3-164-811,3-56-112,3-140-565,3-50-100,3-12-28,3-169-829&bottomfen=100&mtuser_id=0&page_city_id=1&entityplat=2&ad_v=2&mtadshop_id=160750349&mtpage_city_id=10&adidx=1&act=2&gather_index=1&item_index=-999",
+                "adsShowUrl": "https://mlog.dianping.com/api/cpv/action?productid=74&display_id=50028&bg=0&pctr=0.06509803921568627&ad_cj=YzzfjbXHBAMVXUElO91yf2ZEfbuRhM-neCHP-Vdw-ojcRRFWqmKG3wRj7FTRQxN8BB5iZWzcCRmOaaj48SefdPYXSGAi2JZRsayXyMaMosSmDWgiKyNE932vAwoXR0RtqhQ1mOt3SxVv6tk&ad_ci=YzzfhbTXCEpdD1kxY9J2bz8ZNuHK0uC8dX-T91xr_oLcSwUA9C7WnE08sF7YRgU_UFw2NCGlAhTXZajl8znZJr5EX3Yn05ZY6aWfyMiIqcOlBWUlOmQZqj-gAAoBFhYImz5L_Jx8G0tovds5YHU&discount=1&mtlaunch_city_id=10&bu=2&category_id=110&pos=1&AdsCtrStrategy=SearchPcSearchBaseline&mtuser_id64=0&pcvr=0.0023829787234042558&mtdpid=eb2a491c56c84415b76c.1584237355.1.0.0&bottomprice=1.0&user_agent=pc&launch_city_id=1&mtcategory_ids=17&sver=2&AdExpPath=3-164-811,3-56-112,3-140-565,3-50-100,3-12-28,3-169-829&bottomfen=100&mtuser_id=0&page_city_id=1&entityplat=2&ad_v=2&mtadshop_id=160750349&mtpage_city_id=10&adidx=1&act=3&gather_index=1&item_index=-999"
+            },
+            {
+                "poiId": 1493270,
+                "frontImg": "https://img.meituan.net/600.600/msmerchant/f2889b6a714c2d0b548545c11bd2e13d198804.png",
+                "title": "七欣天品蟹轩（上海松江环城路店）",
+                "avgScore": 4.7,
+                "allCommentNum": 5542,
+                "address": "松江区环城路980号（两岸咖啡旁）",
+                "avgPrice": 131,
+                "dealList": [],
+                "hasAds": false,
+                "adsClickUrl": "",
+                "adsShowUrl": ""
+            },
+            {
+                "poiId": 397142,
+                "frontImg": "http://p0.meituan.net/600.600/shopmainpic/43e9c90d5ebd1d2ff10571e82ce4dc1466333.jpg",
+                "title": "红辣椒（安信商业广场店）",
+                "avgScore": 4.9,
+                "allCommentNum": 4454,
+                "address": "宝山区牡丹江路1255号安信商业广场3层302室",
+                "avgPrice": 84,
+                "dealList": [],
+                "hasAds": false,
+                "adsClickUrl": "",
+                "adsShowUrl": ""
+            },
+            {
+                "poiId": 159536727,
+                "frontImg": "https://img.meituan.net/msmerchant/3bc01df30cd9afb1f342fdb4178fbf25440882.jpg@600w_600h_1l",
+                "title": "蜀大侠（人民广场店）",
+                "avgScore": 3.5,
+                "allCommentNum": 428,
+                "address": "黄浦区西藏中路180-184号第四层",
+                "avgPrice": 135,
+                "dealList": [],
+                "hasAds": true,
+                "adsClickUrl": "https://mlog.dianping.com/api/cpv/billing?productid=74&display_id=50028&bg=0&pctr=0.03601265822784809&ad_cj=LN2avggAwyZ3QOUdOlBtp7uWf0o_03Urf940-6MRL1XXRZncd9WPddNtuV4YN8VZkzFHkjfSD5c3HL9GEs_pXPzMepnqrbnlblQ1HLuiVNoSi8WrZbsKbUm0C_B0Nzj4bmE8eOlWIl8gvEJP&ad_ci=LN2atgkQz28_Ev0JYl9ut-vCNBVnhVowcoBo9KcLJ1ncRI2BL5bUNp435FcfNtoYwXUXxXSrBJpuFLNcF8j9Hr_Pao3NsIvpN1g0HbqmUNIQjMm1JOBRKEa3CfZ2KX3xRHAtBrADfl19vRVLJw&discount=1&mtlaunch_city_id=10&bu=18&category_id=110&pos=1&AdsCtrStrategy=SearchPcSearchBaseline&mtuser_id64=0&pcvr=0.003717171717171718&mtdpid=eb2a491c56c84415b76c.1584237355.1.0.0&bottomprice=1.0&user_agent=pc&launch_city_id=1&mtcategory_ids=17&sver=2&AdExpPath=3-164-811,3-56-112,3-140-565,3-50-100,3-12-28,3-169-829&bottomfen=100&mtuser_id=0&page_city_id=1&entityplat=2&ad_v=2&mtadshop_id=159536727&mtpage_city_id=10&adidx=4&act=2&gather_index=1&item_index=-999",
+                "adsShowUrl": "https://mlog.dianping.com/api/cpv/action?productid=74&display_id=50028&bg=0&pctr=0.03601265822784809&ad_cj=LN2avggAwyZ3QOUdOlBtp7uWf0o_03Urf940-6MRL1XXRZncd9WPddNtuV4YN8VZkzFHkjfSD5c3HL9GEs_pXPzMepnqrbnlblQ1HLuiVNoSi8WrZbsKbUm0C_B0Nzj4bmE8eOlWIl8gvEJP&ad_ci=LN2atgkQz28_Ev0JYl9ut-vCNBVnhVowcoBo9KcLJ1ncRI2BL5bUNp435FcfNtoYwXUXxXSrBJpuFLNcF8j9Hr_Pao3NsIvpN1g0HbqmUNIQjMm1JOBRKEa3CfZ2KX3xRHAtBrADfl19vRVLJw&discount=1&mtlaunch_city_id=10&bu=18&category_id=110&pos=1&AdsCtrStrategy=SearchPcSearchBaseline&mtuser_id64=0&pcvr=0.003717171717171718&mtdpid=eb2a491c56c84415b76c.1584237355.1.0.0&bottomprice=1.0&user_agent=pc&launch_city_id=1&mtcategory_ids=17&sver=2&AdExpPath=3-164-811,3-56-112,3-140-565,3-50-100,3-12-28,3-169-829&bottomfen=100&mtuser_id=0&page_city_id=1&entityplat=2&ad_v=2&mtadshop_id=159536727&mtpage_city_id=10&adidx=4&act=3&gather_index=1&item_index=-999"
+            },
+            {
+                "poiId": 2559464,
+                "frontImg": "http://p1.meituan.net/600.600/bbia/2559464_1583904120869.jpeg",
+                "title": "汤伯府·骨汤猪肚鸡·原新招鲜",
+                "avgScore": 5,
+                "allCommentNum": 5037,
+                "address": "松江区茸梅路217号（靠近茸梅路和茸平路路口）",
+                "avgPrice": 48,
+                "dealList": [],
+                "hasAds": false,
+                "adsClickUrl": "",
+                "adsShowUrl": ""
+            },
+            {
+                "poiId": 2561971,
+                "frontImg": "https://img.meituan.net/600.600/msmerchant/8d8feefac6b3afaa2542a6fcf1a5f15e98826.jpg",
+                "title": "四川香天下火锅（天山店）",
+                "avgScore": 4.3,
+                "allCommentNum": 2991,
+                "address": "长宁区长宁区芙蓉江路367",
+                "avgPrice": 110,
+                "dealList": [],
+                "hasAds": false,
+                "adsClickUrl": "",
+                "adsShowUrl": ""
+            },
+            {
+                "poiId": 958854313,
+                "frontImg": "https://img.meituan.net/180.180/msmerchant/7606a5d5861460f5a0f0af75d7e3c33c1040479.jpg@600w_600h_1l",
+                "title": "椒三姐火锅店（长寿路店）",
+                "avgScore": 4.4,
+                "allCommentNum": 16,
+                "address": "普陀区长寿路街道长寿路700古井假日酒店3楼",
+                "avgPrice": 84,
+                "dealList": [],
+                "hasAds": true,
+                "adsClickUrl": "https://mlog.dianping.com/api/cpv/billing?productid=74&display_id=50028&bg=0&pctr=0.04617777777777778&ad_cj=9lzsTpQqqAOrASZd8BeDB_nPIXX2rPtM8GoBFEvjHrWjrCD5YWt_2vXZkQ21aSfJobzqECSYOX6N2s-TzHJZBda7O1fD82LIidQSlXncStyfjUtZnWTOwor30aEU6NuT9i1mkiAafWyHh6ohRg&ad_ci=9lzsRpU6pErjUz5JqBiHGKibaiyv-tRX_TRdHEH1GLCpqifpPT04g7eYwF6uJHOD_uyqfHzPIi3WicSV03NWBda7O3bP7XOq0YUXlXLdTd2Ti18TyTmNy47116Ea_p6Z3zx37HsUeWjSg_8k&discount=1&mtlaunch_city_id=10&bu=28&category_id=110&pos=1&AdsCtrStrategy=SearchPcSearchBaseline&mtuser_id64=0&pcvr=0.0039000000000000016&mtdpid=eb2a491c56c84415b76c.1584237355.1.0.0&bottomprice=1.0&user_agent=pc&launch_city_id=1&mtcategory_ids=17&sver=2&AdExpPath=3-164-811,3-56-112,3-140-565,3-50-100,3-12-28,3-169-829&bottomfen=100&mtuser_id=0&page_city_id=1&entityplat=2&ad_v=2&mtadshop_id=958854313&mtpage_city_id=10&adidx=7&act=2&gather_index=1&item_index=-999",
+                "adsShowUrl": "https://mlog.dianping.com/api/cpv/action?productid=74&display_id=50028&bg=0&pctr=0.04617777777777778&ad_cj=9lzsTpQqqAOrASZd8BeDB_nPIXX2rPtM8GoBFEvjHrWjrCD5YWt_2vXZkQ21aSfJobzqECSYOX6N2s-TzHJZBda7O1fD82LIidQSlXncStyfjUtZnWTOwor30aEU6NuT9i1mkiAafWyHh6ohRg&ad_ci=9lzsRpU6pErjUz5JqBiHGKibaiyv-tRX_TRdHEH1GLCpqifpPT04g7eYwF6uJHOD_uyqfHzPIi3WicSV03NWBda7O3bP7XOq0YUXlXLdTd2Ti18TyTmNy47116Ea_p6Z3zx37HsUeWjSg_8k&discount=1&mtlaunch_city_id=10&bu=28&category_id=110&pos=1&AdsCtrStrategy=SearchPcSearchBaseline&mtuser_id64=0&pcvr=0.0039000000000000016&mtdpid=eb2a491c56c84415b76c.1584237355.1.0.0&bottomprice=1.0&user_agent=pc&launch_city_id=1&mtcategory_ids=17&sver=2&AdExpPath=3-164-811,3-56-112,3-140-565,3-50-100,3-12-28,3-169-829&bottomfen=100&mtuser_id=0&page_city_id=1&entityplat=2&ad_v=2&mtadshop_id=958854313&mtpage_city_id=10&adidx=7&act=3&gather_index=1&item_index=-999"
+            },
+            {
+                "poiId": 1594007,
+                "frontImg": "https://img.meituan.net/600.600/msmerchant/98edb73ff88476fed467edfc7da05bae61167.jpg",
+                "title": "豆捞坊·胶原花胶火锅（万达广场宝山店）",
+                "avgScore": 4.3,
+                "allCommentNum": 5351,
+                "address": "宝山区一二八纪念路988弄万达广场3层（近共康路地铁站）",
+                "avgPrice": 93,
+                "dealList": [],
+                "hasAds": false,
+                "adsClickUrl": "",
+                "adsShowUrl": ""
+            },
+            {
+                "poiId": 5484518,
+                "frontImg": "http://p1.meituan.net/600.600/deal/0413f5c7c7517eb592e2d71f3f28b5c1108764.jpg",
+                "title": "8+1石锅鱼（松东路店）",
+                "avgScore": 4.7,
+                "allCommentNum": 6787,
+                "address": "松江区松东路24号（松东路环城路交叉口附近，近环城路加油站）",
+                "avgPrice": 49,
+                "dealList": [],
+                "hasAds": false,
+                "adsClickUrl": "",
+                "adsShowUrl": ""
+            },
+            {
+                "poiId": 60460742,
+                "frontImg": "https://img.meituan.net/180.180/msmerchant/1811f365e001a617cdef17c0600bed9b2580057.jpg@600w_600h_1l",
+                "title": "重庆巴王府火锅",
+                "avgScore": 4.5,
+                "allCommentNum": 1574,
+                "address": "嘉定区梅川路1528号（万镇路与梅川路交口、梅川路步行街口）",
+                "avgPrice": 80,
+                "dealList": [],
+                "hasAds": true,
+                "adsClickUrl": "https://mlog.dianping.com/api/cpv/billing?productid=74&display_id=50028&bg=0&pctr=0.0795789473684211&ad_cj=iCkVouNuPOOkey0xt7V6DGukudMf5pnTCMUJWwf3Zack7lDsQDVaTRFaUXv86kMMeyTl1sOiTJhDzSU67Gfq2hv2Wc7p91zHo0HP3ZN0LkFiV2Vq4PLDMaFDgR0-TE7xyObyLwNfAd-VRw&ad_ci=iCkVquJ-MKrsKTUl77p5Gj33_YlDsLbIBZtfXgfoYKIq7kO6G3kBAF0EAHLz61FOKmG2gZGfTJhDyDk_-y22mUjhT8vi91WfqknP05d_KUJqWmJ7p6-ec65AgQtvHivA4pjDWAZbBoyVQ5LH1Q&discount=1&mtlaunch_city_id=10&bu=28&category_id=110&pos=1&AdsCtrStrategy=SearchPcSearchBaseline&mtuser_id64=0&pcvr=0.0014889867841409695&mtdpid=eb2a491c56c84415b76c.1584237355.1.0.0&bottomprice=1.0&user_agent=pc&launch_city_id=1&mtcategory_ids=17&sver=2&AdExpPath=3-164-811,3-56-112,3-140-565,3-50-100,3-12-28,3-169-829&bottomfen=100&mtuser_id=0&page_city_id=1&entityplat=2&ad_v=2&mtadshop_id=60460742&mtpage_city_id=10&adidx=10&act=2&gather_index=1&item_index=-999",
+                "adsShowUrl": "https://mlog.dianping.com/api/cpv/action?productid=74&display_id=50028&bg=0&pctr=0.0795789473684211&ad_cj=iCkVouNuPOOkey0xt7V6DGukudMf5pnTCMUJWwf3Zack7lDsQDVaTRFaUXv86kMMeyTl1sOiTJhDzSU67Gfq2hv2Wc7p91zHo0HP3ZN0LkFiV2Vq4PLDMaFDgR0-TE7xyObyLwNfAd-VRw&ad_ci=iCkVquJ-MKrsKTUl77p5Gj33_YlDsLbIBZtfXgfoYKIq7kO6G3kBAF0EAHLz61FOKmG2gZGfTJhDyDk_-y22mUjhT8vi91WfqknP05d_KUJqWmJ7p6-ec65AgQtvHivA4pjDWAZbBoyVQ5LH1Q&discount=1&mtlaunch_city_id=10&bu=28&category_id=110&pos=1&AdsCtrStrategy=SearchPcSearchBaseline&mtuser_id64=0&pcvr=0.0014889867841409695&mtdpid=eb2a491c56c84415b76c.1584237355.1.0.0&bottomprice=1.0&user_agent=pc&launch_city_id=1&mtcategory_ids=17&sver=2&AdExpPath=3-164-811,3-56-112,3-140-565,3-50-100,3-12-28,3-169-829&bottomfen=100&mtuser_id=0&page_city_id=1&entityplat=2&ad_v=2&mtadshop_id=60460742&mtpage_city_id=10&adidx=10&act=3&gather_index=1&item_index=-999"
+            },
+            {
+                "poiId": 42965392,
+                "frontImg": "http://p1.meituan.net/600.600/mogu/3858829bec269c7c425f676f7fd25cf2405627.jpg",
+                "title": "大脚牛养生牛肉馆（青村店）",
+                "avgScore": 4.7,
+                "allCommentNum": 737,
+                "address": "奉贤区人民路26号",
+                "avgPrice": 22,
+                "dealList": [],
+                "hasAds": false,
+                "adsClickUrl": "",
+                "adsShowUrl": ""
+            }
+        ]
+    }
+}

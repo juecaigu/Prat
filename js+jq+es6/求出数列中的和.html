@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>求数列的和</title>
+    <style>
+        .out{
+            width: 500px;
+            margin:20px auto;
+        }
+        .out span{
+            font-size:12px;
+            color:#bcc;
+            margin-left:12px;
+        }
+        button{
+            cursor:pointer;
+        }
+        .sum{
+            color:red;
+            font-size:18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="out">
+        <input type="text" />
+        <span>输入数字求和，数字之间用半角“,”隔开</span>
+        <p><button>求和</button></p>
+        <p><strong class="sum"></strong></p>
+    </div>
+    <script>
+        var oBtn=document.getElementsByTagName("button")[0];
+        var oInp=document.getElementsByTagName("input")[0];
+        var oStr=document.getElementsByTagName("strong")[0];
+        oInp.onkeyup=function(){
+            this.value = this.value.replace(/[^(\d)|(,)]/,"");//正则表达式，用来限制输入内容
+        }
+        oBtn.onclick=function(){
+            var sum=0;
+            var oInput=oInp.value.split(",");//将对象转换成数组，有两个参数，第一个参数必须；将字符串以指定的位置转换成数组
+            for(var i=0;i<oInput.length;i++){
+                sum+=parseInt(oInput[i]);
+            }
+            oStr.innerHTML=sum;
+        }
+    </script>
+</body>
+</html>

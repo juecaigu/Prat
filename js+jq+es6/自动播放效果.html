@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>自动播放效果</title>
+    <style>
+        body,div,ul,li{
+            padding:0;
+            margin:0;
+        }
+        body{
+            font:12px/20px Arial;
+            background-color:#000;
+            text-align:center;
+        }
+        ul{
+            list-style:none;
+        }
+        #nav{
+            background-color: #fff;
+            width: 500px;
+            height: 172px;
+            margin:10px auto;
+            border-radius:6px;
+            position:relative;
+            padding:8px 4px;
+        }
+        #nav .list{
+            position:relative;
+            width: 490px;
+            height: 170px;
+            /*overflow:hidden;*/
+            border:1px solid #ccc;
+            top:0px;
+            left:4px;
+        }
+        #nav .list li{
+            position:absolute;
+            width: 490px;
+            height: 170px;
+            top:0;
+            left:0;
+            opacity:0;
+            filter:alpha(opacity=0);/*兼容ie浏览器的，定义透明度*/
+        }
+        #nav .list li.current{
+            opacity:1;
+            filter:alpha(opacity=100);
+        }
+        #nav .count{
+            position:absolute;
+            bottom:12px;
+            right:8px;
+        }
+        #nav .count li{
+            float:left;
+            font:400 12px Arial;
+            line-height:20px;
+            color:#fff;
+            width: 20px;
+            height: 20px;
+            background-color: #F90;
+            border-radius:20px;
+            margin-right:5px;
+            cursor:pointer;
+        }
+        #nav .count li.current{
+            background-color:#f60;
+            font-width:700;
+            opacity:1;
+            filter:alpha(opacity=100);
+        }
+    </style>
+</head>
+<body>
+    <div id="nav">
+        <ul class="list">
+            <li class="current"><img src="images/01.jpg" alt=""></li>
+            <li><img src="images/02.jpg" alt=""></li>
+            <li><img src="images/03.jpg" alt=""></li>
+            <li><img src="images/04.jpg" alt=""></li>
+            <li><img src="images/05.jpg" alt=""></li>
+        </ul>
+        <ul class="count">
+            <li class="current">1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+        </ul>
+    </div>
+    <script>
+        var oBox=document.getElementById("nav");
+        var oUl=oBox.getElementsByTagName("ul");
+        var oList=oUl[1].getElementsByTagName("li");
+        var oCount=oUl[0].getElementsByTagName("li");
+        var index=0;
+        var timer=time=null;
+        //鼠标划入切换数字标签
+        for(var i=0;i<oList.length;i++){
+            oList[i].index=i;
+            oList[i].onmouseover=function(){
+                show(this.index);
+            }
+            oBox.onmouseover=function(){
+                clearInterval(timer);//鼠标进入取消定时器
+            }
+            oBox.onmouseout=function(){
+                //鼠标移出开始定时器；
+                autoPlay();
+            }
+        };
+        autoPlay();
+        //设置定时器 自动播放
+        function autoPlay(){
+            timer=setInterval(function(){
+                index++;
+                if(index>=oList.length){
+                    index=0;
+                }
+                console.log(index+"zidong")
+                show(index);
+            },2000);
+        }
+        function show(num){//封装函数，用于显示图片和指针
+            index=num;//比较重要的一步,在鼠标进入时能够把当前的索引值存贮在index中，自动播放时index++就是从当前之后开始进行
+            console.log(index);
+            var a=0;
+            for(var i=0;i<oList.length;i++){
+                oList[i].className="";
+            }
+            oList[index].className="current";
+            clearInterval(time);
+            for(var i=0;i<oCount.length;i++){
+                oCount[i].style.opacity=0;
+            }//清除所有的属性
+            time=setInterval(function(){
+                a+=4;
+                oCount[index].style.opacity=a/100;
+                if(a>=100){
+                    clearInterval(time);
+                }
+            },50)
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>改变div属性值</title>
+    <style>
+        body,p,div,span{
+            margin:0;
+            padding:0;
+        }
+        body{
+            color:#333;
+            font:12px/1.5 Tahoma;
+        }
+        #out{
+            width: 300px;
+            margin:50px auto 0;
+            text-align:center;
+        }
+        p{
+            margin-bottom:12px;
+        }
+        button{
+            margin-right:10px;
+            cursor:pointer;
+        }
+        #change{
+            background-color:#000;
+            width: 110px;
+            height: 110px;
+            margin:0px auto;
+            color:#fff;
+            padding:5px;
+        }
+    </style>
+</head>
+<body>
+    <div id="out">
+        <p>
+            <span>属性名:</span>
+            <input type="text" >
+        </p>
+        <p>
+            <span>属性值:</span>
+            <input type="text" ></p>
+        <p>
+            <button>确定</button>
+            <button>重置</button>
+        </p>
+    </div>
+    <div id="change">请输入属性名称和属性值，点击确定；点击重置按钮返回初始值</div>
+    <script>
+        var oInt=document.getElementsByTagName("input");
+        var oBtn=document.getElementsByTagName("button");
+        var oDiv=document.getElementById("change");
+        var changeStyle=function(elem,sty,value){
+            elem.style[sty]=value;
+        };//构造函数用来改变对象的属性值
+        var clear=function(ele){
+            for(var i in ele){
+                ele[i].value="";
+            }
+        };//清除文本框内容；
+        oBtn[0].onclick=function(){
+            console.log(oDiv.style.hasOwnProperty(oInt[0].value));//判断是否有该属性值
+            changeStyle(oDiv,oInt[0].value,oInt[1].value);
+        };
+        oBtn[1].onclick=function(){
+            oDiv.removeAttribute("style");
+            clear(oInt);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>全选与反选</title>
+    <style>
+        body,dl,dt,dd,p{margin:0;padding:0;}
+        body{
+            font-family:Tahoma;
+            font-size:12px;
+        }
+        label a{
+            vertical-align:middle;
+        }
+        dl{
+            width: 120px;
+            margin:10px auto;
+            border:1px solid #666;
+            border-radius:5px;
+            background-color:#fafafa;
+            padding:10px 5px;
+        }
+        dt{
+            border-bottom:1px solid #666;
+            padding-bottom:10px;
+        }
+        lable{
+            padding:0 10px 0 5px;
+        }
+        p{
+            margin-top:10px;
+        }
+        a{
+            color:#09F;
+            text-decoration:none;
+        }
+        a:hover{
+            color:red;
+        }
+    </style>
+</head>
+<body>
+    <dl>
+        <dt><input type="checkbox" id="checkAll"><lable>全选</lable><a href="#">反选</a></dt>
+        <dd>
+            <p><input type="checkbox" name="souse"><lable>洋葱</lable></p>
+            <p><input type="checkbox" name="souse"><lable>番茄酱</lable></p>
+            <p><input type="checkbox" name="souse"><lable>土豆泥</lable></p>
+            <p><input type="checkbox" name="souse"><lable>芝士</lable></p>
+            <p><input type="checkbox" name="souse"><lable>辣椒酱</lable></p>
+        </dd>
+    </dl>
+    <script>
+        var oInp=document.getElementsByTagName("input");
+        var oInt=document.getElementsByTagName("a")[0];
+        var isCheckAll=function(){
+            for(var i=1,n=0;i<oInp.length;i++){
+                if(oInp[i].checked){
+                    n=n+1;//用来记录被选中的复选框的个数这个表达式可以写成这样 oInp[i].checked && n++
+                }
+            }
+            oInp[0].checked=n==oInp.length-1;//比较是否全部选中
+            oInp[0].checked=oInp[0].checked?true:false;//若全部选中，显示为选择，否则将不选中
+            // console.log(n);
+        }//构造函数用来判断全选按钮是否被选上
+        oInp[0].onclick = function ()
+        {
+            for (var i = 1; i < oInp.length; i++)
+            {
+                oInp[i].checked = this.checked
+            }
+            isCheckAll()
+        }//为全选按钮注册点击事件，选中之后全部的复选框都选中
+        for (var i = 1; i < oInp.length; i++)
+        {
+            oInp[i].onclick = function ()
+            {
+                isCheckAll()
+            }
+        }//为每一个复选框注册点击事件，调用函数判断全选框是否被选中；
+        oInt.onclick=function(){
+            for(var i=1;i<oInp.length;i++){
+                oInp[i].checked=!oInp[i].checked;
+            }
+            isCheckAll();
+        }
+    </script>
+    </div>
+</body>
+</html>

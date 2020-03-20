@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id = "app">
+        <input type="text" v-model.number = "firstNum"> + 
+        <input type="text" v-model.number = "lastNum"> =
+        <input type="text" v-model.number = "sum">
+    </div>
+    <script>
+        const vm = new Vue({
+            el:"#app",
+            data:{
+                firstNum:null,
+                lastNum:null,
+            },
+            //计算属性
+            computed:{
+                sum:{
+                    //获取sum的值
+                    get(){
+                        return this.firstNum + this.lastNum
+                    },
+                    //设置sum的值
+                    set(arg){
+                        const val = arg/2;
+                        this.firstNum = this.lastNum = val; 
+                    }
+                }
+            }
+        })
+        //如果有同名的属性值，执行的顺序是，先data，再methods 再computed
+    </script>
+</body>
+</html>

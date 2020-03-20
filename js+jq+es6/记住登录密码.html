@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>记住登录</title>
+    <style>
+        #out{
+            width: 200px;
+            margin:20px auto 0;
+            font-size:14px;
+            font-color:#ccc;
+            line-height:14px;
+            cursor:pointer;
+        }
+        #out input{
+            vertical-align:middle;
+        }
+        #tip{
+            width: 200px;
+            margin:0 auto;
+            font-size:14px;
+            background-color:#ffefa4;
+            border:1px solid #f90;
+            padding:5px;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <div id="out">
+            <input type="checkbox" />
+            两周内自动登录
+        </div>
+    </div>
+    <script>
+        var oDiv=document.getElementById("out");
+        var oBox=document.getElementById("box");
+        var oTip;
+        oDiv.onmouseover=function(){
+            if(!document.getElementById("tip")){//为了只创建一次元素，做一次判断
+                oTip=document.createElement("div");
+                oTip.id="tip";
+                oTip.innerText="请不要在网吧或者公共场所记住密码";
+                console.log(oTip);
+                oBox.appendChild(oTip);//添加对象的子元素，不能对document使用
+            }
+        };
+        oDiv.onmouseout=function(){
+            oBox.removeChild(oTip);//删除元素；这样保证鼠标进入时能够再重新创建
+        }
+    </script>
+</body>
+</html>

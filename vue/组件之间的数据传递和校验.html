@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id = "app">
+        <!-- 通过属性值的方式跟组件进行数据交互 -->
+        <my-cotent :title="title" :content="content"></my-cotent>
+    </div>
+    <script>
+        const vm = new Vue({
+                el:"#app",
+                data:{
+                    content:"aaa",
+                    title:"bbb"
+                },
+                components:{
+                    myCotent:{
+                        //通过props注册数据
+                        props:{  
+                            content:{
+                                type:String, //控制传递的属性，必须是String类型
+                                // required:true,//必须传值
+                                default:"titile1"//没有传值的时候的默认值
+                            },
+                            title:{
+                                // default:() => {a:"b"},//没有传值的时候的默认值,如果是对象或者是数组就要用函数返回
+                                validator(val){
+                                    return val >= 10   //对传入的数据进行处理，如果小于10就会警告        
+                                }
+                            }
+                        },
+                        template:`<div>
+                            <h4>{{ title }}</h4>
+                            <p>{{ content }}</p>
+                        </div>`//必须用一个根标签包裹
+                    }
+                }
+            })
+    </script>
+</body>
+</html>

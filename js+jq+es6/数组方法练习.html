@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数组方法练习</title>
+    <style>
+        div{
+            word-wrap:break-word;
+            color:green;
+            font:12px/1.5 "Courier New";
+            border:1px dashed #333;
+            margin:10px 0;
+            padding:8px;
+        }
+        input{
+            cursor:pointer;
+        }
+    </style>
+
+</head>
+<body>
+    <div id="oin">一月、二月、三月、四月、五月、六月、七月、八月、九月、十月、十一月、十二月</div>
+    <input type="button" value="删除第一项">
+    <input type="button" value="删除最后一项">
+    <div>0、1、2、3、4、5、6、7、8、9</div>
+    <input type="button" value="复制">
+    <input type="button" value="还原">
+    <div>white、black、red、green、blue、yellow</div>
+    <input type="button" value="还原">
+    <input type="button" value="删除前三项">
+    <input type="button" value="删除第二至第三项">
+    <input type="button" value="在第二项后插入">
+    <input type="button" value="替换第二项和第三项">
+    <script>
+        var oDiv=document.getElementsByTagName("div");
+        var oInp=document.getElementsByTagName("input");
+        var aTmp=[];
+        var judge=judge1=true;
+        //获取每个div的数据
+        function getArray(array){
+            //初始化aTmp
+            aTmp.length=0;
+            var str=[];
+            str=array.split("、");
+            //用push方法把所有str中的字符串都加进aTmp中
+            for(var i=0;i<str.length;i++){
+                aTmp.push(str[i]);
+            }
+            return aTmp;
+        }
+        //注册删除和添加事件
+        oInp[0].onclick=function(){
+            aTmp=getArray(oDiv[0].innerHTML);
+            judge?
+                (aTmp.shift(),this.value="添加第一项",judge=false):
+                (aTmp.unshift("一月"),this.value="删除第一项",judge=true);
+            //输出改变后的aTmp值
+            oDiv[0].innerHTML=aTmp.join("、");
+        };
+        //注册最后一项删除和添加事件
+        oInp[1].onclick=function(){
+            aTmp=getArray(oDiv[0].innerHTML);
+            judge1?
+                //注意这边删除的时候是跟分隔符一起删除的
+                (aTmp.pop(),this.value="添加最后一项",judge1=false):
+                (aTmp.push("十二月"),this.value="删除最后一项",judge1=true);
+            oDiv[0].innerHTML=aTmp.join("、");
+        }
+        //复制按钮
+        oInp[2].onclick=function(){
+            aTmp=getArray(oDiv[1].innerHTML);
+            //复制
+            oDiv[1].innerHTML=aTmp.concat(aTmp).toString().replace(/\s/g,"")
+        }
+        //还原按钮
+        oInp[3].onclick=function(){
+            oDiv[1].innerHTML="0,1,2,3,4,5,6,7,8,9"
+        }
+        //还原按钮
+        oInp[4].onclick=function(){
+            oDiv[2].innerHTML="white、black、red、green、blue、yellow";
+        }
+        oInp[5].onclick=function(){
+            aTmp=getArray(oDiv[2].innerHTML);
+            //删除前三项
+            aTmp.splice(0,3);
+            oDiv[2].innerHTML=aTmp.join("、");
+        }
+        oInp[6].onclick=function(){
+            aTmp=getArray(oDiv[2].innerHTML);
+            //删除第二项跟第三项
+            aTmp.splice(1,2);
+            oDiv[2].innerHTML=aTmp.join("、");
+        }
+        oInp[7].onclick=function(){
+            aTmp=getArray(oDiv[2].innerHTML);
+            //在第二项后面添加
+            aTmp.splice(2,0,"pink","orange");
+            oDiv[2].innerHTML=aTmp.join("、");
+        }
+        oInp[8].onclick=function(){
+            aTmp=getArray(oDiv[2].innerHTML);
+            //替换第二和第三项
+            aTmp.splice(1,2,"red","black");
+            oDiv[2].innerHTML=aTmp.join("、");
+        }
+    </script>
+</body>
+</html>

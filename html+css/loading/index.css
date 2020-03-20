@@ -1,0 +1,110 @@
+body,div,p{
+    padding:0;
+    margin:0;
+}
+:root,body{
+    width:100%;
+    height:100%;
+}
+.container {
+    width:100%;
+    height:100%;
+    background-color: #FFDAB9;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    
+}
+.container .text{
+    /* width:100px; */
+    height:100px;
+    line-height: 100px;
+    text-align:center;
+    font:bold 48px Arial;
+    color:#fff;
+}
+
+@keyframes jump{
+    0%{
+        transform:translateY(0%);
+        box-shadow:0 10px 10px rgba(0,0,0,0.2);
+    }
+    100%{
+        transform: translateY(-50px);
+        box-shadow:0 60px 15px rgba(0,0,0,0.5)
+    }
+}
+@keyframes move-eye{
+    0%,5%{
+        transform: translateX(-50%);
+    }
+    95%,100%{
+        transform: translateX(50%);
+    }
+}
+.container .monster{
+    width:80px;
+    height:80px;
+    background-color: #FF8C69;
+    margin-left:20px;
+    border-radius:18px;
+    box-shadow:0 10px 10px rgba(0,0,0,0.4);
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    position:relative;
+    animation:jump 0.6s ease-out infinite alternate;
+}
+.container .monster::before,
+.container .monster::after{
+    content:"";
+    display:block;
+    position:absolute;
+    width:26%;
+    height:12%;
+    background-color: #fff;
+    border-radius:6px;
+    top:0;
+    left:0;
+}
+.container .monster::before{
+    transform-origin:right center;
+    transform:translate(102%) rotateZ(45deg) 
+}
+.container .monster::after{
+    transform-origin:left center;
+    transform:translate(172%) rotateZ(-45deg) 
+}
+.container .monster.blue{
+    background-color: #4169E1;
+    animation-delay:0.6s;
+}
+.container .monster.blue .eye .eye-ball{
+    background-color: #FF8C69;
+}
+
+.container .monster .eye{
+    width:45%;
+    height:45%;
+    border-radius:50%;
+    background-color: #fff;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+.container .monster .eye .eye-ball{
+    width:50%;
+    height:50%;
+    border-radius:50%;
+    background-color: #4169E1;
+    animation:move-eye 0.6s ease-in-out infinite alternate;
+}
+.container .monster .mouth{
+    width:36%;
+    height:12%;
+    background-color: #fff;
+    border-radius:6px;
+    margin-top:6px;
+}
+

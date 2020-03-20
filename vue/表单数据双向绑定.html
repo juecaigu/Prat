@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!--v-model 可以实现数据的双向绑定-->
+        <input type="text" v-model="content">
+        <span>{{ content }}</span>
+
+        <!-- 复选框 -->
+        <input type="checkbox" name="m" value="选项一" v-model="checkbox">选项一
+        <input type="checkbox" name="m" value="选项二" v-model="checkbox">选项一
+        <input type="checkbox" name="m" value="选项三" v-model="checkbox">选项一
+        {{ checkbox }}
+        <!-- 跟选中的value值是一致的 -->
+
+        <!-- 单选框 -->
+        <input type="radio" name = "r" value="one" v-model="rad">一
+        <input type="radio" name = "r" value="two" v-model="rad">二
+        {{ rad }}
+        <!-- 跟选中的value值是一致的 -->
+
+        <!-- 下拉菜单 -->
+        <select name="se" id="o" v-model="sec" multiple>
+            <option value="" disabled>请选择</option>
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <option value="C">C</option>
+        </select>
+        {{ sec }}
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        const vm = new Vue({
+            el:"#app",
+            data:{
+                content:"",
+                checkbox:[],
+                rad:"",
+                sec:[],//复选框为多选的时候，数组的顺序不会按照选择顺序来
+            }
+        })
+    </script>
+</body>
+</html>

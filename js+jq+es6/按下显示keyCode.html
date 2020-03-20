@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>按下显示keyCode</title>
+    <style>
+        body{
+            font:20px/1.5 Courier New;
+            text-align:center;
+        }
+    </style>
+</head>
+<body>
+    <p>显示keyCode</p>
+    <script>
+        var oP=document.getElementsByTagName("p")[0];
+        document.onkeydown=function(event){
+            event=event||window.event;
+            oP.innerHTML=event.keyCode;
+            //不加这句话按tab键会跳出事件
+            return false;
+        }
+        //阻止右键
+        document.oncontextmenu=function(){
+            return false;
+        }
+    </script>
+</body>
+</html>

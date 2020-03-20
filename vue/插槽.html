@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id = "app">
+        <my-button>
+            默认替换无名的插槽
+            <template v-slot:right>
+                <!-- 可以简写成#      #right -->
+                替换名为right的插槽
+            </template>
+        </my-button>
+    </div>
+    <script>
+        const vm = new Vue({
+            el:"#app",
+            data:{},
+            components:{
+                myButton:{
+                    template:`<button>
+                                <slot></slot>    相当于在这里预留一个位置，然后使用的时候再传递数据
+                                --------------
+                                <slot name = "right"></slot>
+                            </button>`
+
+                }
+            }
+        })
+    </script>
+</body>
+</html>

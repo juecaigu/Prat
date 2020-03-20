@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background-color:orange;
+            position:absolute;
+            left:0;
+            top:0;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <script>
+        var oDiv = document.getElementsByTagName("div")[0];
+        oDiv.addEventListener("click",function(){
+            bufferMove(oDiv,{width:"200px",left:"100px",height:"200px"});
+            // 把以下代码封装成函数
+            // var step = 0; 
+            // var current = 0;
+            // oDiv.timer = setInterval(function(){
+            //     current = oDiv.offsetWidth;
+            //     step = Math.ceil((400 - current)/7);
+            //     if(step == 0){
+            //         oDiv.style.width = 400 + "px"
+            //         clearInterval(oDiv.timer);
+            //         console.log("over");
+            //     }else{
+            //         oDiv.style.width = current + step + "px";
+            //         console.log(step);
+            //     }
+            // },30)
+        },false)
+        function bufferMove(elem,tarObj){
+            var step = 0;
+            var current = 0;
+            var arr = 0;
+            elem.timer = setInterval(function(){
+                //可以通过对象的方式传入多个属性值
+                for( var arr in tarObj){
+                    current = parseInt(getComputedStyle(elem,null)[arr]);
+                    target = parseInt(tarObj[arr]);
+                    step = Math.ceil((target - current)/7);
+                    if (step == 0){
+                        elem.style[arr] = target + "px";
+                        clearInterval(elem.timer);
+                    }else {
+                        elem.style[arr] = current + step +"px";
+                    }
+                }
+            },30)
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>累加</title>
+    <style>
+        body{
+            text-align:center;
+        }
+    </style>
+</head>
+<body>
+    <input type="button" value="0">
+    <script>
+        var oInt=document.getElementsByTagName("input")[0];
+        oInt.onclick=function(){
+            var i=parseInt(oInt.value);
+            i++;
+            oInt.value=i;
+        }
+    </script>
+</body>
+</html>

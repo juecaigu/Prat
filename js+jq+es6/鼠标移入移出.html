@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>鼠标移入移出</title>
+    <style>
+        #out{
+            width: 200px;
+            height: 200px;
+            background-color:#000;
+            color:#fff;
+            margin:50px auto;
+            cursor:pointer;
+        }
+        #out.current{
+            background-color:#A7B5C3;
+            border:1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <div id="out">
+        鼠标移入变色，移出回复
+    </div>
+    <script>
+        var oDiv=document.getElementById("out");
+        console.log(oDiv);
+        oDiv.onmouseover=function(){
+            oDiv.className="current";
+        }
+        oDiv.onmouseout=function(){
+            oDiv.className="";
+        }
+    </script>
+</body>
+</html>

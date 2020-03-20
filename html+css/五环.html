@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>五环</title>
+        <style>
+            /*注意这里的body有初始的margin值 8px*/
+            body,div{
+                margin:0;
+                padding:0;
+            }
+            .box{
+                /*这里用relative是相对于初始位置定位的*/
+                position:absolute;
+                width: 380px;
+                height: 186px;
+                top:50%;
+                left:50%;
+                margin-left:-190px;
+                margin-top:-93px;
+            }
+            .circle1,.circle2,.circle3,.circle4,.circle5{
+                width: 100px;
+                height: 100px;
+                position:absolute;
+                border:10px solid;
+                border-radius:50%;
+            }
+            .circle1{
+                border-color:red;
+                top:0;
+                left:0;
+                z-index:5;
+            }
+            .circle2{
+                border-color:yellow;
+                top: 0;
+                left:130px;
+                z-index:4;
+            }
+            .circle3{
+                border-color:blue;
+                top:0;
+                left:260px;
+                z-index:3;
+            }
+            .circle4{
+                border-color:purple;
+                top:65px;
+                left:65px;
+                z-index:2;
+            }
+            .circle5{
+                border-color:green;
+                top:65px;
+                left:195px;
+                z-index:1;
+            }
+        </style>
+</head>
+<body>
+    <div class="box">
+        <div class="circle1"></div>
+        <div class="circle2"></div>
+        <div class="circle3"></div>
+        <div class="circle4"></div>
+        <div class="circle5"></div>
+    </div>
+</body>
+</html>
