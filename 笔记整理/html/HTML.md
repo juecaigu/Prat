@@ -36,6 +36,23 @@ p div span h1~6 ul li dl dd dt input section textarea img a i table th tr td
 > 2. 便于后期维护；
 > 3. 有利于搜索优化；对于`h`标签搜索引擎有比较大的权重；
 
+### XML
+
+`xml` --  `ExtentsibleMarkup language`(可扩展标记语言)是存储数据的数据源；同样是标签的形式；
+
+跟`html` 相同的地方：
+
+* 都可以操作数据，在结构上是相似的；同样是采用标签的形式；
+
+跟`html` 区别：
+
+* `xml` 作用是存储数据，`html` 是用来在页面上展示数据的；
+* `xml` 大小写敏感   --    `html`大小写不敏感;
+* `xml` 可以自定义标签  --  `html` 会有预定好的标签
+* `xml` 不会自动删除掉空格  --  `html`在解析的时候会删除空格
+
+`xml`更多的可能是一种存储和传递数据信息的工具媒介；
+
 ### 结构
 
 常见结构如下:
