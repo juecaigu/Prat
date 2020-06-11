@@ -71,7 +71,7 @@
     <div class="father2"></div>
 ```
 
-<img src="C:\Users\江杰\AppData\Roaming\Typora\typora-user-images\image-20200508224123466.png" alt="image-20200508224123466" style="zoom:50%;" />
+<img src="https://i.loli.net/2020/06/10/ny9FDOsK26G5oSY.png" alt="image-20200508224123466" style="zoom:50%;" />
 
 `father2`的层级看起来比较低，但是它比`test1 和 test2`的父级的层级要高；所以会覆盖在上面；
 
@@ -142,7 +142,7 @@
 >  <div class="son">test2</div>
 > ```
 >
-> ![image-20200507081444246](C:\Users\江杰\AppData\Roaming\Typora\typora-user-images\image-20200507081444246.png)
+> ![image-20200507081444246](https://i.loli.net/2020/06/10/Sanph3vwJyXCtfm.png)
 >
 > 可以看出，其实撑开盒子高度的不是`font-size`而是`line-height`，平常不写`line-height`是因为会识别里面内容（包括文字，图片等）的高度，然后将盒子撑开；
 >
@@ -401,7 +401,7 @@ float:none (默认)  left(左浮动)  right(右浮动)
 
    显示效果：
 
-   ![image-20200506232728599](C:\Users\江杰\AppData\Roaming\Typora\typora-user-images\image-20200506232728599.png)
+   ![image-20200506232728599](https://i.loli.net/2020/06/10/ks2RuDLTjzef6yd.png)
 
    利用`overflow:hidden`触发`BFC`，又因为`BFC`不会跟`float-box`重叠，所以右边的盒子会从左边盒子的右边界开始显示
 
@@ -428,7 +428,7 @@ float:none (默认)  left(左浮动)  right(右浮动)
     </div>
    ```
 
-   <img src="C:\Users\江杰\AppData\Roaming\Typora\typora-user-images\image-20200506233159300.png" alt="image-20200506233159300" style="zoom:50%;" />                                   <img src="C:\Users\江杰\AppData\Roaming\Typora\typora-user-images\image-20200506233300421.png" alt="image-20200506233300421" style="zoom:50%;" />
+   <img src="https://i.loli.net/2020/06/10/Ysb7dHWGiu94QCo.png" alt="image-20200506233159300" style="zoom:50%;" />                                   <img src="https://i.loli.net/2020/06/10/SFCBpJ5743lIM8s.png" alt="image-20200506233300421" style="zoom:50%;" />
 
 左边是触发了`BFC`的样子，右边是没有；
 

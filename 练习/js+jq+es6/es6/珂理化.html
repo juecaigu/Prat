@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    // 用于固定参数的
+    const cal = function(a,b,c,d){
+        console.log(a+b*c-d);
+    }
+    const curry = function(func,...arg){
+        return function (...argm) {
+            const allArguments = [...arg,...argm];
+            if(allArguments.length >= func.length){
+                return func(...allArguments);
+            }else{
+                return curry(func,...allArguments)
+            }
+        }
+    }
+    //如果每次传入的a和b都相等，可以固定参数；
+    const newCal = curry(cal,1,2);
+    newCal(3,4);// 1+2*3-4
+    newCal(2,3);//1+2*2-3
+    newCal(4,5);//1+2*4-5
+    const newCal2 = newCal(6);
+    newCal2(9);
+    </script>
+</body>
+</html>

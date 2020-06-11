@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    const pro = new Promise((resolve,reject)=>{
+        //处理未决状态下的函数
+        //resolve会把函数推向已决阶段的resolved状态
+        //reject会把函数推向已决阶段的rejected状态
+        setTimeout(function(){
+            resolve(123);
+        },3000)
+    })
+    //pro.then方法
+    pro.then(data=>{
+        //data为状态参数
+        //如果当前的Promise的状态为resolved ，立即执行
+        //如果当前的Promise的状态为未决阶段，先放到作业队列，然后等
+        //状态为resolved时立即执行；
+    },err=>{
+
+    })
+    pro.catch(err=>{})//可以通过catch方法单独添加catchable函数
+    //需要注意的
+    //1、未决阶段的函数都是同步的，会立即执行
+    //2、thenable和catchable函数是异步执行的，就算立即执行也是加入到事件队列里面（微队列）
+    //3、一旦状态确定，就不可以改变
+    const p = new Promise((resolve,reject)=>{
+        console.log("a");
+        setTimeout(function(){
+            console.log("b")
+        },3000)
+        resolve(1);
+    })
+    p.then(data=>{
+        console.log(data);
+    })
+    console.log("c");// a 1 c b
+
+    //async
+    async function test() {
+        console.log(1);
+        return 2;
+    }
+    //等价于
+    function test1(){
+        return Promise((resolve,reject)=>{
+            console.log(1);
+            resolve(2);
+        }) 
+    }
+    const pro1 = test();
+    console.log(pro);
+
+
+    //await------一定是出现在async中
+    async function test2(){
+        const result = await test1();
+        //相当于把test1返回的值赋值给result,等其成功后赋值
+        //等价于
+        test1().then(data=>{
+            const result = data;
+        })
+    }
+    </script>
+</body>
+</html>

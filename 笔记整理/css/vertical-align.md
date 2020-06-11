@@ -19,7 +19,6 @@
 > * 设置图片的`vertical-align`为`middle`  -- 让元素的中心跟行盒子的`baseline + x高度一半`的位置对齐；
 > * 设置行盒的`font-size = 0`
 
-2. `li`作为行内元素横向排列的时候，默认情况下最后一个`li`的底部会跟`baseline`对齐，呈现的效果如图；
-   <img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20200509160146258.png" alt="image-20200509160146258" style="zoom:50%;" />
+2. `li`作为行内元素横向排列的时候，默认情况下最后一个`li`的底部会跟`baseline`对齐；
 
 可以通过设置`vertical-align:middle`让其都基于中线对齐；

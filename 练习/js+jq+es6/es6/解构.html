@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let user = {
+            name:"users",
+            age:11,
+            sex:"man"
+        }
+        //之前调用user对象里面的属性要一个个访问
+        let name = user.name;
+        let age = user.age;
+        let sex = user.sex;
+        //使用解构之后
+        let name1,age1,sex1;
+        ({name1,age1,sex1}=user)
+        //同时也可把let写一起（顺序是先声明里面的变量）
+        let {name1,age1,sex1} =user
+        //非同名属性解构
+        let {name1,age1,sex1:gender} = user//sex1是user中的属性，gender是不同的结构名
+        console.log(name1,age1,gender);
+
+        //数组结构是一样的
+        let a = 1; let b = 2;
+        //交换ab的值
+        [b,a] = [a,b]
+    </script>
+</body>
+</html>

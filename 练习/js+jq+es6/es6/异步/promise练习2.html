@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const ajax = function (obj) {
+            return new Promise((resolve, reject) => {
+                const xhr = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHttp");
+                const method = obj.type || "GET";
+                const data = obj.data || null;
+                const url = obj.url || "";
+                if (method === "GET") {
+                    xhr.open("GET", url, true);
+                    xhr.send(data);
+                } else if (method === "POST") {
+                    xhr.open("POST", url, true);
+                    xhr.setRequestHeader("Content-Type", "encodeapplication/x-www-form-urlencode");
+                    xhr.send(data);
+                }
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState === 4) {
+                        if (xhr.status === 200) {
+                            resolve(JSON.parse(xhr.responseText));
+                        }
+                        else {
+                            reject(xhr.status)
+                        }
+                    }
+
+                }
+            })
+        }
+
+        //用async和await语法糖
+        async function getTeacher() {
+            let newId = null;
+            const stuId = await ajax({ url: "./data/students.json" })
+            for(let i = 0;i<stuId.length;i++){
+                if(stuId[i].name === "李华"){
+                    newId = stuId[i].classId;
+                }
+            }
+            const classId = await ajax({url: "./data/classes.json"})
+            for(let i = 0;i<classId.length;i++){
+                if(classId[i].id === newId){
+                    newId = classId[i].teacherId;
+                }
+            }
+            const teacherId = await ajax({url: "./data/teachers.json"})
+            for(let i = 0;i<teacherId.length;i++){
+                if(teacherId[i].id === newId){
+                    newId = teacherId;
+                }
+            }
+            console.log(newId);
+        }
+        getTeacher()
+
+        // //延迟函数
+        // function delay(duration){
+        //     return new Promise((resolve,reject)=>{
+        //         setTimeout(()=>{
+        //             resolve();
+        //         },duration)
+        //     })
+        // }
+        // async function fun(){
+        //     console.log("第一次输出");
+        //     //await 相当于就是说在这边阻塞了代码，一定要后面的Promise完成之后才会向下执行
+        //     await delay(5000);
+        //     console.log("第二次输出");
+        // }
+        // //第一次输出跟第二次输出之间间隔5s；
+    </script>
+</body>
+
+</html>

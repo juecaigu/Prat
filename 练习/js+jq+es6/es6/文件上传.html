@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="file" id= "avatar">
+    <button>上传</button>
+    <img src="" alt="">
+    <script>
+        const img = document.getElementsByTagName("img")[0];
+        const inp = document.getElementById("avatar");
+        const btn = document.getElementsByTagName("button")[0];
+        //请求函数
+        async function upload(){
+            if (inp.files.length == 0){
+                alert("请选择文件")
+            }
+            const formData = new FormData();//利用FormData对象构建请求体
+            formData.append("imagefile",inp.files[0]);//添加键值对
+            //开始请求
+            const url = "http://101.132.72.36:5100/api/upload"
+            const resp = await fetch(url,{
+                method:"POST",
+                body:formData,//自动会同步请求体，并修改请求头
+            })
+            //返回json格式
+            const result = await resp.json();
+            return result;
+        }
+        btn.onclick =async function(){
+            img.src = await upload();
+        }
+    </script>
+</body>
+</html>

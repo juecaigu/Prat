@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //创建数组
+        const arr = Array.of(1,2,3,4,5)
+        //之前用 new Array创建的时候，如果里面只传一个参数会表示数组的长度
+
+        //数组的转换
+        // Array.from()//------把类数组或者是可迭代对象转换成数组
+
+
+        const arr1 = [{
+            a:3,
+            b:4 
+        },{
+            a:2,
+            b:3
+        },{
+            a:1,
+            b:2
+        }]
+        //查找符合条件的第一个值      findIndex 查找符合条件的下标
+        const result = arr1.find(function(item){
+            return item.a == 2; 
+        })
+        console.log(result);
+
+        const arr100 = new Array(100);//创建一个长度为100的数组
+        arr100.fill("item")//每一项填充为item
+    </script>
+</body>
+</html>

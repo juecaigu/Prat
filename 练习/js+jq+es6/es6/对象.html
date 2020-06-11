@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    // //简化了字面量对象的写法
+    // const creat = function (a,b,c){
+    //     return {
+    //         a,
+    //         b,
+    //         c
+    //     }
+    // }
+    // //等价于
+    // const creat = function(a,b,c){
+    //     return {
+    //         a:this.a,
+    //         b:this.b,
+    //         c:this.c
+    //     }
+    // }
+    // const prop1 = "name";
+    // const prop2 = "age";
+    // const obj = {
+    //     [prop1]:"aaa",
+    //     [prop2]:111,
+    // }
+    // class Person {
+    //     constructor(name,age){
+    //         this.name = name;
+    //         this.age = age;
+    //     }
+    //     say(){
+    //         console.log(this.name)
+    //     }
+    // }
+    // const p = new Person("a",12)
+    // p.say()
+
+    //类的写法---里面的代码是在严格模式下
+    class Ainmal {
+        constructor (name,age,type,sex){
+            this.name=name,
+            this.age=age,
+            this.type=type,
+            this.sex = sex
+        }
+        get age(){
+            return this._age
+        }
+        //通过set方法可以动态控制age  es5 中可以用object.definedPrototype设置set
+        set age(age){
+            if(typeof age != "number"){
+                age = 0
+            }
+            if(age < 0){
+                age = 0;
+            }else if(age > 200 ){
+                age = 200;
+            }
+            this._age=age;
+        }
+        //方法会直接写到原型当中
+        print(){
+            console.log(this.name)
+        }
+        //静态成员------不需要new Ainmal 就可以直接调用；是存在构造函数里面的静态属性
+        //创建的静态成员在new Ainmal实例对象中访问不到
+        static width = 100;
+        static menthod(){};
+    }
+    const a = new Ainmal();//必须用new关键词调用
+    //不会遍历原型上的方法------按照之前的构造函数会遍历原型上的方法；
+    for(prop in a){
+        console.log(prop);
+    }
+    class Person{
+        constructor(name,age,sex){
+            this.name = name;
+            this.age = age;
+            this.sex = sex;
+        }
+        print(){
+
+        }
+    }
+    class Man extends Person{
+        constructor(a,b,c){        //constructor 之后必须调用super
+            super(name,age,sex)    // 父类的构造器
+            //会继承原型当中 print方法；
+        }
+        print(){
+            //会覆盖父类的方法；
+            super.print()//super 如果用对象使用的话，代表父类的原型（相当于把父类的print里面的方法放到这里）
+            console.log("Man")    //------定义子类私有的print方法语句
+        }
+    }
+
+    class Father{
+        constructor(){
+            this.father = "Father";
+        }
+    }
+    class Son extends Father{
+        constructor(){
+            super();
+            this.son = "Son"
+            this.length = 2;
+        }
+    }
+    const son = new Son();
+    console.log(son)
+    </script>
+</body>
+</html>

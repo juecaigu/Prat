@@ -1,0 +1,34 @@
+:root,html,body{
+    width:100%;
+    height:100%;
+}
+body{
+    margin:0;
+    padding:0;
+    background-color: #ccc;
+    text-align:center;
+    overflow:hidden;
+}
+div{
+    padding:0;
+    margin:0;
+}
+.wrapper{
+    width: 480px;
+    height: 480px;
+    margin:100px auto 0;
+}
+#board{
+    background-color:#ffe4b5;
+    box-sizing:border-box;
+}
+.event{
+    width:480px;
+    height:40px;
+    margin:10px auto;
+}
+.event button{
+    height:25px;
+    outline:none;
+    cursor:pointer;
+}

@@ -406,7 +406,7 @@ a();
 
 事件队列
 
-![img](D:\YNote\jk3308@126.com\9e552ad79fa54ce988b570ffc25a150a\img_20191219_234016.jpg)
+![image-20200610095850120](https://i.loli.net/2020/06/10/JfHWbvp6ikKu3dz.png)
 
 浏览器宿主会将监听的时间加入到事件队列里面，然后**执行栈清空的时候会将事件队列里面的第一个函数加入到执行栈中去执行**；
 
@@ -456,7 +456,7 @@ rejected------catchable
 
 **整个模型就是Promise      如图**
 
-![img](D:\YNote\jk3308@126.com\adc8b0b131404b3994b744571c898c45\img_20191220_225540.jpg)
+![image-20200610095724734](https://i.loli.net/2020/06/10/pFMaQyXvCIwfe6b.png)
 
 **注意**------Promise并没有消除回调，只是变得可控；
 

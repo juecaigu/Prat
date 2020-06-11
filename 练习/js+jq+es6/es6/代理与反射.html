@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+     const obj = {
+         a:1,
+         b:2
+     }
+     //Reflect ------反射，会提供很多API 来用底层实现某些功能；
+     Reflect.set(obj,"a",10);//等价于 obj.a = 10;
+     console.log(obj);
+
+    //代理就是重写反射------反射就是用各种api调用底层的操作；
+    //代理就是在要操作的对象外面套一个代理，外部是通过操作代理来间接操作对象；
+    //应用的例子
+    
+    class user{
+        //之前要写以下代码，用代理就可以很好简化
+        // constructor(firstName,lastName,age){
+        //     this.firstName = firstName,
+        //     this.lastName = lastName,
+        //     this.age = age
+        // }
+    }
+
+    function ConProxy(Class, ...prop){
+        return new Proxy(Class,{
+            //重写 construct 方法
+            construct(target,argumentslist){
+                const obj = Reflect.construct(target,argumentslist);
+                prop.forEach(function(ele,index){
+                    obj[ele] = argumentslist[index]
+                })
+                return obj;
+            }
+        })
+    }
+    const UserProxy = ConProxy(user,"firstName","lastName","age");
+    const obj1 = new UserProxy("a","b",1);
+    console.log(obj1);
+    </script>
+</body>
+</html>

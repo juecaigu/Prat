@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    
+    //js迭代器格式 有一个next方法，返回一个对象{value："",done:""}
+    // const obj = {
+    //     next:function(){
+    //         return {
+    //             value:"1",//得到下一个数据
+    //             done:"2"//判断是否迭代完成
+    //         }
+    //     }
+    // }
+    const arr1 = [1,2,3,4,5,6];
+    function createrIterator(arr){
+        let i = 0;
+        return {
+            next:function(){
+                let result = {
+                    value:arr[i],
+                    done:i>=arr.length
+                }
+                i++;
+                return result;
+            }
+        }
+    }
+    const result1 = createrIterator(arr1);
+    let res = result1.next();
+    while(!res.done){
+        let item = res.value;
+        console.log(item);
+        res = result1.next()
+    }
+    // while(!result1.done){
+    //     result1.next();
+
+    // }
+    //可迭代对象：
+    //一个对象有知名符号 [symbol.iterator]并且属性值是一个迭代器创建函数，那么该对象就是可迭代的
+    //数组和类数组就是可迭代对象，数组的隐式原型中有[symbol.iterator]属性
+    //for of 循环------可迭代对象都可以用这个循环
+    for(const items of arr1){
+        console.log(items)
+    }
+    //这个跟上面的while是一致的
+
+    
+   var obj = {
+       next:()=>{
+           console.log(this)
+           return {
+               show:this,
+           }
+       }
+   }
+   console.log(obj.next().show);
+    </script>
+</body>
+</html>

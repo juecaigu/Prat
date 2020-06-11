@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //用set进行数组和字符串去重
+        // const arr = [1,2,4,,12,123,123,11,3,4,5,0];
+        // const s = new Set(arr);
+        // const result = [...s];
+        // const str = "asdhgaiosbdfgadfbihn";
+        // const sr = new Set(str);
+        // const result1 = [...sr].join("");
+        // //数组求交集和并集
+        // const arr1 = [22,55,1,3,2,6,85];
+        // const arr2 = [11,45,2,6,33,6,32,89]
+        // console.log( [...new Set([...arr1,...arr2])]);
+        // //交集------用数组的filter方法；
+        // console.log([...new Set(arr1)].filter(item => new Set(arr2).has(item)));
+        let obj = {
+            a:1,
+            b:2
+        };
+        const s1 = new WeakSet();
+        s1.add(obj);
+        obj = null;
+        console.log(s1);//写set不会清除 
+    </script>
+</body>
+</html>

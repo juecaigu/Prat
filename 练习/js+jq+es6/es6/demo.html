@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // const a =1;//如果后面改变a的值会报错；
+        // const b = {
+        //     name:"21",
+        //     age:"12"
+        // }
+        // b.name = "abgiwe";//const 声明的时候b的地址不变，但是指向的空间变了；
+        // function num(a,b,c,d,e){
+        //     console.log(arguments)
+        // }
+        // num(a,b);
+        // const test = String.raw`hga\awke\n`//后面的字符串不会被转义符号影响
+        // const test2 = myFn`gaej${a}`//myFn表示自定义的函数，相当于执行这个函数
+        //                             //函数的参数；第一个是被插值分割的字符串数组
+        //                             //          后面就是各项插值；
+        // myFn(["gaej",""],a);
+        // function test(a,b,...arg){
+        //     console.log(...arg)
+        // }
+        //剩余参数用来解决传入的参数不固定，格式为 ...参数名;
+        //剩余参数和展开运算符
+        const obj1 = {
+            name:"abc",
+            age:12,
+            sex:"man",
+            habbit:['read','eat','sleep']
+        }
+        const obj2 = {
+            ...obj1,
+            habbit:[...obj1.habbit],
+        }
+        console.log(obj2.habbit === obj1.habbit);
+    </script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    //生成器------yield相当于（截断）
+    function *test(){
+        let num = yield 1;
+        // yield 1;
+        // console.log("第一次执行")
+        // yield 2;
+        // console.log("第二次执行")
+        num = yield num + 2
+        console.log(num)//------注意如果next里面传参数，其实就是yield的返回值
+    }
+    const tes = test();
+
+    //生成器函数里面可以调用其他生成器
+    function *test1 (){
+        yield "a";
+        yield "b";
+    }
+    function *test2(){
+        yield *test1();
+        yield 1;
+    }
+    const tes2 = test2();
+
+    //生成器函数构造斐波那契数列
+    function *creatNum (){
+        let n = 1;
+        let prev1 = 1;
+        let prev2 = 1;
+        let cur;
+        while (true){
+            if(n <= 2){
+                yield 1;
+            }else{
+                cur = prev1 + prev2;
+                yield cur;
+                prev1 = prev2;
+                prev2 = cur;
+            }
+            n++
+        }
+    } 
+    const num = creatNum();
+
+    function *test1(){
+        console.log("第一次执行");
+        yield 1;
+        console.log("第二次执行")
+        yield 2;
+    }
+    function *test2(){
+        let info = yield 1;
+        info = yield info + 2;
+        console.log("结束")
+    }
+    function *test3(){
+        yield *test1();
+        yield 1;
+        console.log("结束")
+    }
+    const generator1 = test1();
+    const generator2 = test2();
+    const generator3 = test3();
+    </script>
+</body>
+</html>

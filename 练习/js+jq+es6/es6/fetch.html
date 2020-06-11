@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    const config = {
+        method:"POST",//默认是GET
+        headers:"",//请求头
+        body:"",//请求体
+        mode:"",//请求模式------是否跨域等
+        credentials:"",//是否发送cookies
+        cache:"",//配置缓存信息
+    }
+    fetch(url,config);//请求就发出了
+    //url是地址，config是配置，如果没有传config就按照默认的
+    
+
+    //返回值
+    //fetch函数返回一个Promise对象
+    //收到服务器的相应（不管是正确的相应还是错误的），返回的Promise对象是resolved状态，状态数据为Response对象；
+    //网络连接错误，返回的Promise进入rejected状态，状态数据为错误信息
+
+    //Response对象
+    `-ok : 当消息相应码在200~299之间为true，否则为false
+    -status：响应的状态码；
+    -text：从相应中获取文本流；然后返回一个被解决为String对象的Promise------简单理解为把返回的数据转变为text文本
+    -json： 把返回的数据转变为json格式；`
+    
+    //其实fetch(url,config)------new Response(url,config)创建一个新的对象也可以发送请求
+    
+    async function getData(){
+        try {
+            const url = "http://101.132.72.36:5100/api/local";
+        const data = await fetch(url);
+        console.log(data);
+        } catch (error) {
+            console.log(error)
+        }
+       
+    }
+    console.log(getData());
+
+    </script>
+</body>
+</html>

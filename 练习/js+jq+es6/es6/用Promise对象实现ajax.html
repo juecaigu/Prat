@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const getJson = function (url) {
+            //创建一个Promise对象并返回
+            const promise = new Promise(function (resolve, reject) {
+                const handle = function () {
+                    if (this.readyState !== 4) {
+                        return;
+                    }
+                    if (this.status == 200) {
+                        //成功时把接收到的对象返回出去
+                        resolve(this.response);
+                    } else {
+                        reject(new Error(this.statusText));
+                    }
+                }
+                const client = new XMLHttpRequest();
+                client.open("GET", url);
+                cilent.onreadystatuschange = handle;
+                client.responseType = "json";
+                client.setRequestHeader("Accept","application/json");
+                client.send();
+            })
+            //把处理好的promise返回出去
+            return promise;
+        }    
+        //为promise对象注册thenable 和 catchable事件
+        //参数就是resolve和reject时候传递的参数；this.response 和 new Error(this.statusText)
+        getJson("./index.json").then(function(json){
+            console.log("contents:" + json )
+        },function(error){
+            console.log("出错了".error)
+        })
+    </script>
+</body>
+
+</html>
