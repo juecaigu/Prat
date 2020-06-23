@@ -10,6 +10,10 @@ var a =  new Foo()
 
 `Object.prototype._proto_ = null`
 
+
+
+`instanceof`是去原型链上查找，就是判断左边的原型链上有没有右边的原型
+
 ```javascript
 function my_instanceof(left,right){
     let leftValue = left.__proto__;
