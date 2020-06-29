@@ -111,3 +111,6 @@ stash@{0}: WIP on master: 5153b69 after fixed
 ```
 执行`git stash list`之后会出现保存状态的任务，如果要回复到某一条，可以执行 `git stash apply stash@{0}` 把最开始的那一段 `stash@{n}` 传进去
 
+### 问题
+
+如果提交的文件也是一个仓库的话就会报错；在输入`git-status`会提示`modified content, untracked content`  这个时候只要把该文件夹里面的`.git`文件删除掉就可以了
